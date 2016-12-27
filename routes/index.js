@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
-var studentID;
+var ID;
 router.use(bodyParser.urlencoded({ extended: false }));
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -11,20 +11,29 @@ router.get('/index', function(req, res, next) {
     res.render('index', { title: 'Express' });
 });
 router.get('/teacher', function(req, res, next) {
-    res.render('teacher',{studentID:studentID});
+    res.render('teacher',{ID:ID});
 });
 router.post('/submit', function(req, res, next) {
-    studentID = req.body.studentID;
-    res.render('submit',{req:req,res:res,studentID:studentID});
+    studentID = req.body.ID;
+    if(studentID == 2014038213) {
+        res.redirect("teacher");
+    }
+    else if(studentID == 2014038122) {
+        res.redirect("student");
+    }
+    else if(studentID == 2014038022){
+        res.redirect("admin");
+    }
+
 });
 router.get('/student', function(req, res, next) {
-    res.render('student',{studentID:studentID});
+    res.render('student',{ID:ID});
 });
 router.get('/parent', function(req, res, next) {
-    res.render('parent',{studentID:studentID});
+    res.render('parent',{ID:ID});
 });
 router.get('/admin', function(req, res, next) {
-    res.render('admin',{studentID:studentID});
+    res.render('admin');
 });
 
 module.exports = router;
