@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>수학에 미친사람들 포털</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+  <img src="../images/quadj transparent.png" width="600" height="600">
+
+  <section class="loginForm">
+    <form method="post" action="/submit">
+      <section class="box">
+        <input type="text" class="iText" name = "studentID" placeholder="ID를 입력하세요.">
+        <input type="submit" value="Login">
+        <br>
+
+      </section>
+    </form>
+  </section>
+
   </body>
 </html>
