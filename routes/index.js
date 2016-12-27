@@ -9,21 +9,22 @@ router.get('/', function(req, res, next) {
 router.get('/index', function(req, res, next) {
     res.render('index', { title: 'Express' });
 });
-router.post('/teacher', function(req, res, next) {
+router.get('/teacher', function(req, res, next) {
+    console.log("state:@@@@@@@@@");
     res.render('teacher');
 });
 router.post('/submit', function(req, res, next) {
-    console.log("ID:"+req.body.id);
-    res.render('submit.ejs', {req : req, res : res, studentID: req.body.studentID });
+    console.log("ID:"+req.body.studentID);
+    res.render('submit',{req:req,res:res,studentID:req.body.studentID});
 });
-router.post('/student', function(req, res, next) {
-    res.render('student', {req : req, res : res, studentID: req.body.studentID });
+router.get('/student', function(req, res, next) {
+    res.render('student');
 });
-router.post('/parent', function(req, res, next) {
-    res.render('parent.index', {req : req, res : res, studentID: req.body.studentID });
+router.get('/parent', function(req, res, next) {
+    res.render('parent');
 });
-router.post('/admin', function(req, res, next) {
-    res.render('Admin.index', {req : req, res : res, studentID: req.body.studentID });
+router.get('/admin', function(req, res, next) {
+    res.render('Admin');
 });
 
 module.exports = router;
