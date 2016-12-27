@@ -24,6 +24,11 @@ router.post('/submit', function(req, res, next) {
     else if(studentID == 2014038022){
         res.redirect("admin");
     }
+    else if(studentID == 2014037783){
+        res.redirect("parent");
+    }
+
+
 
 });
 router.get('/student', function(req, res, next) {
