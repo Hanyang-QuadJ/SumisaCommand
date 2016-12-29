@@ -1,6 +1,6 @@
 # Design Guide
 학원 포털사이트의 디자인 가이드 입니다.
-> Designed by Yunhwan Na
+> Designed by [@nayunhwan](https://github.com/nayunhwan)
 
 ## Library
 - [jQuery CDN](https://code.jquery.com/)
