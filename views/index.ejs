@@ -1,18 +1,181 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset = 'utf-8'>
+<head>
+    <meta charset="utf-8">
     <title>수학에 미친사람들 포털</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-  <img src="../images/quadj transparent.png" width="600" height="600">
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <!-- XEicon CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/xeicon/2/xeicon.min.css">
 
-  <section class="loginForm">
-    <form method="post" action="/submit">
-        <input type="text" class="iText" name = "ID" placeholder="ID를 입력하세요.">
-        <input type="submit" value="Login">
-    </form>
+    <!-- main.css -->
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+</head>
+<header>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- Mobile Nav Button -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <i class="xi-bars xi-x"></i>
+        </button>
+        <a class="navbar-brand" href="#">Portal</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="../navbar/">Right</a></li>
+          <li><a href="../navbar-static-top/">Right</a></li>
+          <li class="active"><a href="./"><i class="xi-profile xi-x"></i> Login</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+</header>
+
+<body>
+  <section id="main_section">
+    <div class="container">
+        <h2>Welcome to Academy Portal
+          <br>
+          학생 종합 포털에 오신 것을 환영합니다
+        </h2>
+    </div>
   </section>
-  </body>
-</html>
+  <section id="sub_section">
+    <div class="container">
+        <span><i class="xi-info-o xi-x"></i> 학생 종합 포털에 오신 것을 환영합니다</span>
+    </div>
+  </section>
+  <br>
+  <div class="container">
+      <section class="loginForm">
+
+        <div class="row">
+          <div class="col-md-5">
+            <div class="row">
+                <div id="login_panel" class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">
+                      <i class="xi-log-in xi-x"></i> Login
+                    </h3>
+                  </div>
+                  <div class="panel-body">
+                    <form method="post" action="/submit">
+                      <div class="row">
+                        <div class="col-md-8">
+                          <input type="text" class="form-control" name="ID" placeholder="ID">
+                          <input type="password" class="form-control" name="ID" placeholder="Password">
+                        </div>
+                        <div class="col-md-4">
+                          <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        </div>
+                      </div>
+
+                      <small>아직 회원이 아니신가요?</small>
+                    </form>
+
+                    <div class="clear-fix">
+
+
+                    </div>
+
+                  </div>
+                </div>
+            </div>
+
+          </div>
+          <div class="col-md-1"></div>
+
+          <div class="col-md-6">
+            <div class="row">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">
+                      <i class="xi-document xi-x"></i> Notice
+                    </h3>
+                  </div>
+                  <div class="panel-body">
+                    <table class="table table-striped table-hover">
+                      <thead>
+                        <tr>
+                          <th>
+                            #
+                          </th>
+                          <th>
+                            내용
+                          </th>
+                          <th>
+                            날짜
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            1
+                          </td>
+                          <td>
+                            Quad J Homepage template
+                          </td>
+                          <td>
+                            2016-12-25
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            1
+                          </td>
+                          <td>
+                            Quad J Homepage template
+                          </td>
+                          <td>
+                            2016-12-25
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            1
+                          </td>
+                          <td>
+                            Quad J Homepage template
+                          </td>
+                          <td>
+                            2016-12-25
+                          </td>
+                        </tr>
+                      </tbody>
+
+                    </table>
+                  </div>
+                </div>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+    </div>
+    <br />
+    <br />
+    <br />
+</body>
+<footer >
+  <div class="container">
+    <h4>Quad J</h4>
+    <p>
+      Designed by Yunhwan Na
+    </p>
+  </div>
+
+</footer>

@@ -1,4 +1,37 @@
-body {
+body{
+  background: #f4f4f4;
+  padding-top: 50px;
+}
+
+footer{
+  color: #7e7e7e;
+  padding: 30px;
+  background: #424e5b;
+}
+
+#main_section{
+  padding: 140px 10px;
+  color: white;
+  background-image: url('../img/student.jpg');
+  background-repeat: no-repeat;
+  background-position: 0px -280px;
+}
+
+#sub_section{
+  padding: 10px;
+  color: white;
+  background: #2d68ac;
+}
+
+#login_panel input{
+  margin-bottom: 5px;
+}
+
+.col-md-4{
+  padding: 0px 20px;
+}
+
+/*body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-image: url('../images/main_background.jpg');
@@ -22,4 +55,4 @@ img{
 
 a {
   color: #00B7FF;
-}
+}*/
