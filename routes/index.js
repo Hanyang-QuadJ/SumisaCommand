@@ -1,36 +1,29 @@
 var express = require('express');
 var router = express.Router();
-var bodyParser = require('body-parser');
-var ID;
-router.use(bodyParser.urlencoded({ extended: false }));
+var ID = null;
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get(['/','/index'], function(req, res, next) {
+  res.render('index');
 });
-router.get('/index', function(req, res, next) {
-    res.render('index', { title: 'Express' });
-});
-router.get('/teacher', function(req, res, next) {
-    res.render('teacher',{ID:ID});
-});
+
+/*Page redirecting based on ID*/
 router.post('/submit', function(req, res, next) {
-    studentID = req.body.ID;
-    if(studentID == 2014038213) {
-        res.redirect("teacher");
+    ID = req.body.ID;
+    if(ID == 'teacher') {
+        res.redirect('teacher');
     }
-    else if(studentID == 2014038122) {
-        res.redirect("student");
+    else if(ID == 'student') {
+        res.redirect('student');
     }
-    else if(studentID == 2014038022){
-        res.redirect("admin");
+    else if(ID == 'admin'){
+        res.redirect('admin');
     }
-    else if(studentID == 2014037783){
+    else if(ID == 'parent'){
         res.redirect("parent");
     }
-
-
-
 });
+
+/*page rendering*/
 router.get('/student', function(req, res, next) {
     res.render('student',{ID:ID});
 });
@@ -40,5 +33,7 @@ router.get('/parent', function(req, res, next) {
 router.get('/admin', function(req, res, next) {
     res.render('admin');
 });
-
+router.get('/teacher', function(req, res, next) {
+    res.render('teacher',{ID:ID});
+});
 module.exports = router;
