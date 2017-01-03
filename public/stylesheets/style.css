@@ -1,58 +1,68 @@
-body{
-  background: #f4f4f4;
-  padding-top: 50px;
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+@import url(http://fonts.googleapis.com/earlyaccess/jejuhallasan.css);
+/* 상단 이미지*/
+
+
+
+/*로그인창*/
+.text{
+  font-size: 26px;
+  margin-left: 19%;
 }
 
-footer{
-  color: #7e7e7e;
-  padding: 30px;
-  background: #424e5b;
+input[name="ID"]{
+
+  padding:27px;
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 10px;
+
+  color: #ffffff;
+
+}
+input[name="PASSWORD"]{
+
+  padding:27px;
+  margin-top: 1%;
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 10px;
+  color: #ffffff;
 }
 
-#main_section{
-  padding: 140px 10px;
-  color: white;
-  background-image: url('../img/student.jpg');
-  background-repeat: no-repeat;
-  background-position: 0px -280px;
-}
+button[name="login_button"]{
 
-#sub_section{
-  padding: 10px;
-  color: white;
-  background: #2d68ac;
+  margin-top: 1%;
+  padding:18px;
+  border-radius: 10px;
 }
+.login{
 
-#login_panel input{
-  margin-bottom: 5px;
-}
-
-.col-md-4{
-  padding: 0px 20px;
-}
-
-/*body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url('../images/main_background.jpg');
-  background-repeat:no-repeat;
-  background-size: cover;
-}
-img{
-  position: absolute;
-  left: 480px;
-  top: -100px;
-  width: 500px;
-  height: 500px;
-  text-align: center;
-  display; block;
-}
-.loginForm{
-  border:5px solid red;
-  background-color: black;
+  margin-top: 100px;
 }
 
 
-a {
-  color: #00B7FF;
-}*/
+
+@media (max-width: 768px){
+  img[alt="whitelogo"]{
+    width: 35%;
+
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
