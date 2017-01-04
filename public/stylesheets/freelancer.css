@@ -69,43 +69,53 @@ hr.star-primary:after {
 }
 /*학생 프로필*/
 header {
-  text-align: center;
   background: #224681;
   color: white;
 }
 header .container {
   padding-top: 100px;
   padding-bottom: 50px;
+
 }
 header img {
   display: block;
   margin: 0 auto 20px;
 }
+header .intro-text{
+  margin-left: 1%;
+}
+
 header .intro-text .name {
   display: block;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
   font-size: 2em;
+  margin-left: 40%;
 }
 header .intro-text .skills {
   font-size: 1.25em;
   font-weight: 300;
+  margin-left: 25%;
+
 }
 @media (min-width: 768px) {
   header .container {
-    padding-top: 200px;
-    padding-bottom: 100px;
+    padding-top: 160px;
+    padding-bottom: 70px;
+
   }
   header .intro-text .name {
-    font-size: 4.75em;
+    margin-left:46%;
+    font-size: 21pt;
   }
   header .intro-text .skills {
-    font-size: 1.75em;
+    font-size: 13pt;
+    margin-left: 42%;
   }
 }
 .navbar-custom {
-  background: #224681;
+  background: ghostwhite;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
@@ -115,19 +125,19 @@ header .intro-text .skills {
   outline: none;
 }
 .navbar-custom .navbar-brand {
-  color: white;
+  color: #001d2f;
 }
 .navbar-custom .navbar-brand:hover,
 .navbar-custom .navbar-brand:focus,
 .navbar-custom .navbar-brand:active,
 .navbar-custom .navbar-brand.active {
-  color: white;
+  color: #001d2f;
 }
 .navbar-custom .navbar-nav {
   letter-spacing: 1px;
 }
 .navbar-custom .navbar-nav li a {
-  color: white;
+  color: #001d2f;
 }
 .navbar-custom .navbar-nav li a:hover {
   color: #18BC9C;
@@ -148,10 +158,10 @@ header .intro-text .skills {
   background: #18BC9C;
 }
 .navbar-custom .navbar-toggle {
-  color: white;
+  color: #001d2f;
   text-transform: uppercase;
   font-size: 10px;
-  border-color: white;
+  border-color: #001d2f;
 }
 .navbar-custom .navbar-toggle:hover,
 .navbar-custom .navbar-toggle:focus {
@@ -507,4 +517,7 @@ fieldset[disabled] .btn-success.active {
 .portfolio-modal .modal-backdrop {
   opacity: 0;
   display: none;
+}
+.intro-text{
+  margin-left: 42%;
 }
