@@ -10,8 +10,8 @@
 6 silly lifecycle test1@0.0.0~prestart: no script for prestart, continuing
 7 info lifecycle test1@0.0.0~start: test1@0.0.0
 8 verbose lifecycle test1@0.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle test1@0.0.0~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/pleiades/WebstormProjects/NodeJsTemplate-newindex/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:file
-10 verbose lifecycle test1@0.0.0~start: CWD: /Users/pleiades/WebstormProjects/NodeJsTemplate-newindex
+9 verbose lifecycle test1@0.0.0~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/jeonghyeonlee/Documents/quadJ/NodeJsTemplate/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+10 verbose lifecycle test1@0.0.0~start: CWD: /Users/jeonghyeonlee/Documents/quadJ/NodeJsTemplate
 11 silly lifecycle test1@0.0.0~start: Args: [ '-c', 'node ./bin/www' ]
 12 silly lifecycle test1@0.0.0~start: Returned: code: 1  signal: null
 13 info lifecycle test1@0.0.0~start: Failed to exec start script
@@ -26,7 +26,7 @@
 14 verbose stack     at maybeClose (internal/child_process.js:877:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
 15 verbose pkgid test1@0.0.0
-16 verbose cwd /Users/pleiades/WebstormProjects/NodeJsTemplate-newindex
+16 verbose cwd /Users/jeonghyeonlee/Documents/quadJ/NodeJsTemplate
 17 error Darwin 16.3.0
 18 error argv "/usr/local/bin/node" "/usr/local/lib/node_modules/npm/bin/npm-cli.js" "run" "start"
 19 error node v6.9.2
