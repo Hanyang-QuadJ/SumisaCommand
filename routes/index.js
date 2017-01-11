@@ -3,7 +3,7 @@ var router = express.Router();
 var ID = null;
 /* GET home page. */
 router.get(['/','/index'], function(req, res, next) {
-  res.render('index');
+  res.render('Login/index');
 });
 
 /*Page redirecting based on ID*/
@@ -34,7 +34,7 @@ router.get('/admin', function(req, res, next) {
     res.render('admin');
 });
 router.get('/teacher', function(req, res, next) {
-    res.render('teacher',{ID:ID});
+    res.render('Teacher/teacher',{ID:ID});
 });
 router.get('/lecture/mylecture', function(req, res, next) {
     res.render('lecture/mylecture',{ID:ID});
