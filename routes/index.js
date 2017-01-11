@@ -36,4 +36,8 @@ router.get('/admin', function(req, res, next) {
 router.get('/teacher', function(req, res, next) {
     res.render('teacher',{ID:ID});
 });
+router.get('/lecture/mylecture', function(req, res, next) {
+    res.render('lecture/mylecture',{ID:ID});
+});
+
 module.exports = router;

@@ -1464,7 +1464,7 @@ a:focus {
  * --------------------
  */
 .small-box {
-  border-radius: 2px;
+  border-radius: 8px;
   position: relative;
   display: block;
   margin-bottom: 20px;
@@ -1489,7 +1489,7 @@ a:focus {
   background: rgba(0, 0, 0, 0.15);
 }
 .small-box h3 {
-  font-size: 38px;
+  font-size: 20px;
   font-weight: bold;
   margin: 0 0 10px 0;
   white-space: nowrap;
@@ -1516,7 +1516,7 @@ a:focus {
   top: -10px;
   right: 10px;
   z-index: 0;
-  font-size: 90px;
+  font-size: 70px;
   color: rgba(0, 0, 0, 0.15);
 }
 .small-box:hover {
@@ -1524,17 +1524,21 @@ a:focus {
   color: #f9f9f9;
 }
 .small-box:hover .icon {
-  font-size: 95px;
+  font-size: 75px;
 }
 @media (max-width: 767px) {
   .small-box {
     text-align: center;
   }
   .small-box .icon {
-    display: none;
+    margin-top: 35px;
+    font-size: 35pt;
   }
   .small-box p {
     font-size: 12px;
+  }
+  .small-box:hover .icon {
+    font-size: 60px;
   }
 }
 /*

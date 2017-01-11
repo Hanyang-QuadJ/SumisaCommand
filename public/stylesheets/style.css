@@ -48,6 +48,25 @@ button[name="login_button"]{
   }
 
 }
+.student_info{
+  padding: 20px;
+}
+.lecture_header{
+  text-align: center;
+  padding: 20px;
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+.lecture_title{
+  font-size: 20pt;
+  padding: 10px;
+
+}
+
+.lecture_teacher{
+  font-size: 14pt;
+
+}
 
 
 
