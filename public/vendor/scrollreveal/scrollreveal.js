@@ -222,7 +222,7 @@
                 }
             }
 
-            // Begin main loop to configure ScrollReveal elements.
+            // Begin body loop to configure ScrollReveal elements.
             for (var i = 0; i < elements.length; i++) {
 
                 // Check if the element has already been configured and grab it from the store.

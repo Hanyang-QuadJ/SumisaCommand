@@ -174,7 +174,7 @@ var FixedColumns = function ( dt, init ) {
 
 			/**
 			 * DataTables scrolling element. This element is the DataTables
-			 * component in the display grid (making up the main table - i.e.
+			 * component in the display grid (making up the body table - i.e.
 			 * not the fixed columns).
 			 *  @type     node
 			 *  @default  null
@@ -382,7 +382,7 @@ FixedColumns.prototype = /** @lends FixedColumns.prototype */{
 	 * the same information (data index information). THe difference between
 	 * the two is that this method takes into account the fixed columns in the
 	 * table, so you can pass in nodes from the master table, or the cloned
-	 * tables and get the index position for the data in the main table.
+	 * tables and get the index position for the data in the body table.
 	 *  @param {node} node TR, TH or TD element to get the information about
 	 *  @returns {int} If nNode is given as a TR, then a single index is 
 	 *    returned, or if given as a cell, an array of [row index, column index
@@ -570,7 +570,7 @@ FixedColumns.prototype = /** @lends FixedColumns.prototype */{
 			} );
 
 		/* Get things right to start with - note that due to adjusting the columns, there must be
-		 * another redraw of the main table. It doesn't need to be a full redraw however.
+		 * another redraw of the body table. It doesn't need to be a full redraw however.
 		 */
 		this._fnGridLayout();
 		this.s.dt.oInstance.fnDraw(false);
@@ -1386,7 +1386,7 @@ FixedColumns.version = "3.0.4";
 
 
 /**
- * Event fired whenever FixedColumns redraws the fixed columns (i.e. clones the table elements from the main DataTable). This will occur whenever the DataTable that the FixedColumns instance is attached does its own draw.
+ * Event fired whenever FixedColumns redraws the fixed columns (i.e. clones the table elements from the body DataTable). This will occur whenever the DataTable that the FixedColumns instance is attached does its own draw.
  * @name FixedColumns#draw.dtfc
  * @event
  * @param {event} e jQuery event object

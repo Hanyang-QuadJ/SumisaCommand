@@ -8943,7 +8943,7 @@ function backupEventDates(event) {
 
 var BasicView = fcViews.basic = View.extend({
 
-	dayGrid: null, // the main subcomponent that does most of the heavy lifting
+	dayGrid: null, // the body subcomponent that does most of the heavy lifting
 
 	dayNumbersVisible: false, // display day numbers on each day cell?
 	weekNumbersVisible: false, // display week numbers along the side?
@@ -9332,7 +9332,7 @@ var AGENDA_ALL_DAY_EVENT_LIMIT = 5;
 
 fcViews.agenda = View.extend({ // AgendaView
 
-	timeGrid: null, // the main time-grid subcomponent of this view
+	timeGrid: null, // the body time-grid subcomponent of this view
 	dayGrid: null, // the "all-day" subcomponent. if all-day is turned off, this will be null
 
 	axisWidth: null, // the width of the time axis running down the side

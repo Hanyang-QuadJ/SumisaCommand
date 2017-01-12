@@ -730,7 +730,7 @@ Scroller.prototype = /** @lends Scroller.prototype */{
 
 
 	/**
-	 * Draw callback function which is fired when the DataTable is redrawn. The main function of
+	 * Draw callback function which is fired when the DataTable is redrawn. The body function of
 	 * this method is to position the drawn table correctly the scrolling container for the rows
 	 * that is displays as a result of the scrolling position.
 	 *  @returns {void}

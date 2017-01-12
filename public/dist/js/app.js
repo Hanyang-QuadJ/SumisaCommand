@@ -19,7 +19,7 @@ if (typeof jQuery === "undefined") {
 /* AdminLTE
  *
  * @type Object
- * @description $.AdminLTE is the main object for the template's app.
+ * @description $.AdminLTE is the body object for the template's app.
  *              It's used for implementing functions and options related
  *              to the template. Keeping everything wrapped in an object
  *              prevents conflict with other plugins and is a better
@@ -249,13 +249,13 @@ function _init() {
     },
     fix: function () {
       //Get window height and the wrapper height
-      var neg = $('.main-header').outerHeight() + $('.main-footer').outerHeight();
+      var neg = $('.body-header').outerHeight() + $('.body-footer').outerHeight();
       var window_height = $(window).height();
       var sidebar_height = $(".sidebar").height();
       //Set the min-height of the content and sidebar based on the
       //the height of the document.
       if ($("body").hasClass("fixed")) {
-        $(".content-wrapper, .right-side").css('min-height', window_height - $('.main-footer').outerHeight());
+        $(".content-wrapper, .right-side").css('min-height', window_height - $('.body-footer').outerHeight());
       } else {
         var postSetWidth;
         if (window_height >= sidebar_height) {
@@ -292,7 +292,7 @@ function _init() {
           $(".sidebar").slimScroll({destroy: true}).height("auto");
           //Add slimscroll
           $(".sidebar").slimscroll({
-            height: ($(window).height() - $(".main-header").height()) + "px",
+            height: ($(window).height() - $(".body-header").height()) + "px",
             color: "rgba(0,0,0,0.2)",
             size: "3px"
           });
@@ -353,7 +353,7 @@ function _init() {
       var _this = this;
       var screenWidth = $.AdminLTE.options.screenSizes.sm - 1;
       //Expand sidebar on hover
-      $('.main-sidebar').hover(function () {
+      $('.body-sidebar').hover(function () {
         if ($('body').hasClass('sidebar-mini')
           && $("body").hasClass('sidebar-collapse')
           && $(window).width() > screenWidth) {
@@ -536,7 +536,7 @@ function _init() {
    *
    * @type Object
    * @usage $.AdminLTE.boxWidget.activate()
-   *        Set all your options in the main $.AdminLTE.options object
+   *        Set all your options in the body $.AdminLTE.options object
    */
   $.AdminLTE.boxWidget = {
     selectors: $.AdminLTE.options.boxWidgetOptions.boxWidgetSelectors,

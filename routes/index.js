@@ -33,11 +33,20 @@ router.get('/parent', function(req, res, next) {
 router.get('/admin', function(req, res, next) {
     res.render('admin');
 });
+
+
+/*teacher page rendering*/
 router.get('/teacher', function(req, res, next) {
-    res.render('Teacher/teacher',{ID:ID});
+    res.render('Teacher/notice/notice',{ID:ID});
 });
-router.get('/lecture/mylecture', function(req, res, next) {
-    res.render('lecture/mylecture',{ID:ID});
+router.get('/teacher/notice', function(req, res, next) {
+    res.render('Teacher/notice/notice',{ID:ID});
+});
+router.get('/teacher/mylecture', function(req, res, next) {
+    res.render('Teacher/mylecture/mylecture',{ID:ID});
+});
+router.get('/teacher/lecturer', function(req, res, next) {
+    res.render('Teacher/lecturer/lecturer',{ID:ID});
 });
 
 module.exports = router;
