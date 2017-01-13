@@ -28,7 +28,7 @@ router.get('/student', function(req, res, next) {
     res.render('student/student',{ID:ID});
 });
 router.get('/parent', function(req, res, next) {
-    res.render('parent',{ID:ID});
+    res.render('Parent/parent',{ID:ID});
 });
 router.get('/admin', function(req, res, next) {
     res.render('admin');

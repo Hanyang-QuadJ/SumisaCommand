@@ -1532,13 +1532,16 @@ a:focus {
   }
   .small-box .icon {
     margin-top: 35px;
-    font-size: 35pt;
+    font-size: 340%;
   }
   .small-box p {
-    font-size: 12px;
+    font-size: 100%;
   }
   .small-box:hover .icon {
-    font-size: 60px;
+    font-size: 350%;
+  }
+  .small-box h3 {
+    font-size: 150%;
   }
 }
 /*
