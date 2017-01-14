@@ -25,7 +25,7 @@ router.post('/submit', function(req, res, next) {
 
 /*page rendering*/
 router.get('/student', function(req, res, next) {
-    res.render('student/student',{ID:ID});
+    res.render('Student/student',{ID:ID});
 });
 router.get('/parent', function(req, res, next) {
     res.render('Parent/parent',{ID:ID});
@@ -34,10 +34,16 @@ router.get('/admin', function(req, res, next) {
     res.render('admin');
 });
 router.get('/teacher', function(req, res, next) {
-    res.render('Teacher/teacher',{ID:ID});
+    res.redirect('teacher/notice')
 });
-router.get('/lecture/mylecture', function(req, res, next) {
-    res.render('lecture/mylecture',{ID:ID});
+router.get('/teacher/notice', function(req, res, next) {
+    res.render('Teacher/notice/teacher',{ID:ID});
+});
+router.get('/teacher/lecturer', function(req, res, next) {
+    res.render('Teacher/lecturer/teacher',{ID:ID});
+});
+router.get('/teacher/mylecture', function(req, res, next) {
+    res.render('Teacher/mylecture/mylecture',{ID:ID});
 });
 
 module.exports = router;
