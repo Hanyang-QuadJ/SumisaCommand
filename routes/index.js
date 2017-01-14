@@ -37,10 +37,10 @@ router.get('/teacher', function(req, res, next) {
     res.redirect('teacher/notice')
 });
 router.get('/teacher/notice', function(req, res, next) {
-    res.render('Teacher/notice/teacher',{ID:ID});
+    res.render('Teacher/notice/notice',{ID:ID});
 });
 router.get('/teacher/lecturer', function(req, res, next) {
-    res.render('Teacher/lecturer/teacher',{ID:ID});
+    res.render('Teacher/lecturer/lecturer',{ID:ID});
 });
 router.get('/teacher/mylecture', function(req, res, next) {
     res.render('Teacher/mylecture/mylecture',{ID:ID});
