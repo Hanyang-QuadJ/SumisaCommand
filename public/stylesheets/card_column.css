@@ -1,0 +1,33 @@
+card{
+    display: inline-block;
+    white-space: normal;
+    padding: 10px;
+    margin: 5px;
+    background: white;
+    border-radius: 3px;
+    border: 1px solid #e1e2e4;
+    /*box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);*/
+}
+
+card > .header{
+
+}
+
+/* column */
+
+column{
+    overflow-y: scroll;
+    vertical-align: top;
+    width: 256px;
+    height: calc(100% - 168px);
+    display: inline-block;
+}
+
+column > .header{
+    margin-bottom: 20px;
+}
+
+column card{
+    display: block;
+    margin: 10px;
+}

@@ -11,3 +11,17 @@
      Both of these plugins are recommended to enhance the
      user experience. Slimscroll is required when using the
      fixed layout. -->
+<script>
+    function addCard(column){
+        console.log($(column).parents()[0]);
+
+        var card = $("<card>");
+
+        var cardHeader = $("<h4 />").addClass("header").text("New Header");
+        var cardDescription = $("<p />").text("New Description");
+        card.append(cardHeader).append(cardDescription);
+        console.log("card");
+        console.log(card);
+        $(column).parents()[0].append(card[0]);
+    }
+</script>
