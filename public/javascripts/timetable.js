@@ -41,7 +41,7 @@
     app.directive('mainTable', function () {
         return {
             restrict: 'A',
-            templateUrl: 'main-table.ejs',
+            templateUrl: 'ejs/main-table.ejs',
             scope: {
                 slots: '='
             },
