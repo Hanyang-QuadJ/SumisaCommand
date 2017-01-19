@@ -1,14 +1,55 @@
 var express = require('express');
 var router = express.Router();
+var firebase = require('firebase');
 var ID = null;
+
+/* Student */
+var student = function (s_id, s_name, s_school, s_phone, s_state) {
+    this.s_id = s_id;
+    this.s_name = s_name;
+    this.s_school = s_school;
+    this.s_phone = s_phone;
+    this.s_state = s_state;
+};
+var config = {
+    apiKey: "AIzaSyAnf59-0cgsAcDmplvQKHcXYCmTySAv3GA",
+    authDomain: "sumisa-50c79.firebaseapp.com",
+    databaseURL: "https://sumisa-50c79.firebaseio.com",
+    storageBucket: "sumisa-50c79.appspot.com",
+    messagingSenderId: "692869677834"
+};
+firebase.initializeApp(config);
+
+
 /* GET home page. */
 router.get(['/','/index'], function(req, res, next) {
-  res.render('Login/index');
+    res.render('Login/index');
 });
 
 /*Page redirecting based on ID*/
 router.post('/submit', function(req, res, next) {
     ID = req.body.ID;
+
+    var s = new student();
+
+    const dbRefObject = firebase.database().ref().child('student');
+
+    //If exists, return true
+    dbRefObject.once("value").then(function (snapshot) {
+
+    });
+
+    //Ordering and finding
+    dbRefObject.orderByChild("s_id").equalTo("2014038122").on("child_added", function(snapshot) {
+
+        s.s_name = snapshot.child('s_name').val();
+        s.s_id = snapshot.child('s_id').val();
+        s.s_phone = snapshot.child('s_phone').val();
+        s.s_school = snapshot.child('s_school').val();
+        s.state = snapshot.child('s_state').val();
+
+    });
+
     if(ID == 'teacher') {
         res.redirect('teacher');
     }
