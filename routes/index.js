@@ -11,6 +11,8 @@ var student = function (s_id, s_name, s_school, s_phone, s_state) {
     this.s_phone = s_phone;
     this.s_state = s_state;
 };
+var s = new student();
+
 var config = {
     apiKey: "AIzaSyAnf59-0cgsAcDmplvQKHcXYCmTySAv3GA",
     authDomain: "sumisa-50c79.firebaseapp.com",
@@ -30,7 +32,6 @@ router.get(['/','/index'], function(req, res, next) {
 router.post('/submit', function(req, res, next) {
     ID = req.body.ID;
 
-    var s = new student();
 
     const dbRefObject = firebase.database().ref().child('student');
 
@@ -38,14 +39,14 @@ router.post('/submit', function(req, res, next) {
     dbRefObject.orderByChild("s_id").equalTo(ID).once("value", function(snapshot) {
         var userData = snapshot.val();
         if (userData){
-            console.log("exists!");
+            res.redirect('student');
         }else {
-            console.log("Nope!");
+            console.log("There is no user for your ID");
         }
     });
 
     //Ordering and finding
-    dbRefObject.orderByChild("s_id").equalTo("2014038122").on("child_added", function(snapshot) {
+    dbRefObject.orderByChild("s_id").equalTo(ID).on("child_added", function(snapshot) {
 
         s.s_name = snapshot.child('s_name').val();
         s.s_id = snapshot.child('s_id').val();
@@ -59,7 +60,7 @@ router.post('/submit', function(req, res, next) {
         res.redirect('teacher');
     }
     else if(ID == 'student') {
-        res.redirect('student');
+
     }
     else if(ID == 'admin'){
         res.redirect('admin');
@@ -71,7 +72,7 @@ router.post('/submit', function(req, res, next) {
 
 /*page rendering*/
 router.get('/student', function(req, res, next) {
-    res.render('Student/student',{ID:ID});
+    res.render('Student/student',{student: s});
 });
 router.get('/parent', function(req, res, next) {
     res.render('Parent/parent',{ID:ID});
