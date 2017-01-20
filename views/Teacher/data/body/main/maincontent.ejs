@@ -2,8 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            NOTICE
-
+            통계
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -13,28 +12,137 @@
 
     <!-- Main content -->
     <section class="content">
+        <div class="clearfix visible-sm-block"></div>
         <div class="row">
-            <div class="col-md-6">
-                <!-- AREA CHART -->
-                <div class="box box-primary">
+            <div class="col-md-12">
+                <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">학생 & 강좌 현황</h3>
+                        <h3 class="box-title">내 학생 & 강좌수 현황</h3>
 
                         <div class="box-tools pull-right">
                             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                             </button>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-wrench"></i></button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                            </div>
                             <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                         </div>
                     </div>
+                    <!-- /.box-header -->
                     <div class="box-body">
-                        <div class="chart">
-                            <canvas id="areaChart" style="height:250px"></canvas>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p class="text-center">
+                                    <strong>1월 1일, 2016 - 7월 30일 2016</strong>
+                                </p>
+
+                                <div class="chart">
+                                    <!-- Sales Chart Canvas -->
+                                    <canvas id="salesChart" style="height: 180px;"></canvas>
+                                </div>
+                                <!-- /.chart-responsive -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-md-4">
+                                <p class="text-center">
+                                    <strong>목표 완성도</strong>
+                                </p>
+
+                                <div class="progress-group">
+                                    <span class="progress-text">학부모 상담내역</span>
+                                    <span class="progress-number"><b>160</b>/200</span>
+
+                                    <div class="progress sm">
+                                        <div class="progress-bar progress-bar-aqua" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                                <!-- /.progress-group -->
+                                <div class="progress-group">
+                                    <span class="progress-text">진도계획표 작성</span>
+                                    <span class="progress-number"><b>310</b>/400</span>
+
+                                    <div class="progress sm">
+                                        <div class="progress-bar progress-bar-red" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                                <!-- /.progress-group -->
+                                <div class="progress-group">
+                                    <span class="progress-text">학생 성적표 관리</span>
+                                    <span class="progress-number"><b>480</b>/800</span>
+
+                                    <div class="progress sm">
+                                        <div class="progress-bar progress-bar-green" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                                <!-- /.progress-group -->
+                                <div class="progress-group">
+                                    <span class="progress-text">강좌 모니터링</span>
+                                    <span class="progress-number"><b>250</b>/500</span>
+
+                                    <div class="progress sm">
+                                        <div class="progress-bar progress-bar-yellow" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                                <!-- /.progress-group -->
+                            </div>
+                            <!-- /.col -->
                         </div>
+                        <!-- /.row -->
                     </div>
-                    <!-- /.box-body -->
+                    <!-- ./box-body -->
+                    <div class="box-footer">
+                        <div class="row">
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="description-block border-right">
+                                    <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 17%</span>
+                                    <h5 class="description-header">₩35,210.43</h5>
+                                    <span class="description-text">학원 전체 수익</span>
+                                </div>
+                                <!-- /.description-block -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="description-block border-right">
+                                    <span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i> 0%</span>
+                                    <h5 class="description-header">₩10,390.90</h5>
+                                    <span class="description-text">내 급여</span>
+                                </div>
+                                <!-- /.description-block -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="description-block border-right">
+                                    <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 20%</span>
+                                    <h5 class="description-header">₩24,813.53</h5>
+                                    <span class="description-text">내 강좌 수익</span>
+                                </div>
+                                <!-- /.description-block -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="description-block">
+                                    <span class="description-percentage text-red"><i class="fa fa-caret-down"></i> 18%</span>
+                                    <h5 class="description-header">1200</h5>
+                                    <span class="description-text">목표 달성 수치</span>
+                                </div>
+                                <!-- /.description-block -->
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.box-footer -->
                 </div>
                 <!-- /.box -->
             </div>
+            <!-- /.col -->
         </div>
     </section>
     <!-- /.content -->
