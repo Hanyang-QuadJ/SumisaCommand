@@ -35,8 +35,13 @@ router.post('/submit', function(req, res, next) {
     const dbRefObject = firebase.database().ref().child('student');
 
     //If exists, return true
-    dbRefObject.once("value").then(function (snapshot) {
-
+    dbRefObject.orderByChild("s_id").equalTo(ID).once("value", function(snapshot) {
+        var userData = snapshot.val();
+        if (userData){
+            console.log("exists!");
+        }else {
+            console.log("Nope!");
+        }
     });
 
     //Ordering and finding
