@@ -137,3 +137,8 @@
 .skin-blue.layout-top-nav .main-header > .logo:hover {
   background-color: #3b8ab8;
 }
+.main-footer{
+  background-color: #3e3e3e;
+  color: white;
+  font-size: 75%;
+}
