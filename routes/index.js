@@ -92,5 +92,8 @@ router.get('/teacher/lecturer', function(req, res, next) {
 router.get('/teacher/mylecture', function(req, res, next) {
     res.render('Teacher/mylecture/mylecture',{ID:ID});
 });
+router.get('/teacher/data', function(req, res, next) {
+    res.render('Teacher/data/data',{ID:ID});
+});
 
 module.exports = router;
