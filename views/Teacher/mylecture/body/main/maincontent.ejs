@@ -52,7 +52,7 @@
             <script>
                 var timetable = new Timetable();
 
-                timetable.setScope(9,3)
+                timetable.setScope(9,23)
 
                 timetable.addLocations(['월', '화', '수', '목', '금', '토', '일']);
 
@@ -76,13 +76,13 @@
 
                 timetable.addEvent('미적분', '월', new Date(2015,7,17,9,00), new Date(2015,7,17,11,30), class1_tag);
                 timetable.addEvent('미적분', '수', new Date(2015,7,17,12,30), new Date(2015,7,17,16,15), class1_tag); // options attribute is not used for this event
-                timetable.addEvent('수1심화', '월', new Date(2015,7,18,00,00), new Date(2015,7,18,02,00), { class: 'vip-only' });
+                timetable.addEvent('수1심화', '월', new Date(2015,7,17,19,00), new Date(2015,7,17,22,00), { class: 'vip-only' });
+                timetable.addEvent('수1심화', '목', new Date(2015,7,17,17,45), new Date(2015,7,17,19,30), { class: 'vip-only',});
                 timetable.addEvent('기하와벡터', '화', new Date(2015,7,17,12), new Date(2015,7,17,13), { url: '#' });
                 timetable.addEvent('기하와벡터', '화', new Date(2015,7,17,13,30), new Date(2015,7,17,15), { url: '#' });
-                timetable.addEvent('수1심화', '목', new Date(2015,7,17,17,45), new Date(2015,7,17,19,30), { class: 'vip-only', data: { maxPlayers: 14, gameType: 'Capture the flag' } });
-                timetable.addEvent('수2기본', '금', new Date(2015,7,17,21), new Date(2015,7,18,1,30), {class: 'class2'}, { url: '#' });
-                timetable.addEvent('성교육특강', '일', new Date(2015,7,17,11,30), new Date(2015,7,17,20), {class: 'class3'}); // options attribute is not used for this event
+                timetable.addEvent('수2기본', '금', new Date(2015,7,17,17), new Date(2015,7,17,21,30), {class: 'class2'}, { url: '#' });
                 timetable.addEvent('수2기본', '토', new Date(2015,7,17,9,30), new Date(2015,7,17,11,45), {class: 'class2'} , { url: '#' });
+                timetable.addEvent('성교육특강', '일', new Date(2015,7,17,11,30), new Date(2015,7,17,20), {class: 'class3'}); // options attribute is not used for this event
 
 
                 var renderer = new Timetable.Renderer(timetable);
