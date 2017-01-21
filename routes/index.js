@@ -80,25 +80,47 @@ router.get('/parent', function(req, res, next) {
 router.get('/admin', function(req, res, next) {
     res.redirect('admin/mg_notice');
 });
+
+
+/*Admin-Student page rendering*/
 router.get('/admin/mg_student', function(req, res, next) {
-    res.render('Admin/mg_student/mg_student',{ID:ID});
+    res.render('Admin/Student/mg_student/mg_student',{ID:ID});
 });
+router.get('/admin/student_info', function(req, res, next) {
+    res.render('Admin/Student/student_info/student_info',{ID:ID});
+});
+router.get('/admin/student_status', function(req, res, next) {
+    res.render('Admin/Student/student_status/student_status',{ID:ID});
+});
+
+/*Admin-Lecture page rendering*/
+router.get('/admin/lecture_status', function(req, res, next) {
+    res.render('Admin/Lecture/lecture_status/lecture_status',{ID:ID});
+});
+router.get('/admin/lecture_info', function(req, res, next) {
+    res.render('Admin/Lecture/lecture_info/lecture_info',{ID:ID});
+});
+router.get('/admin/mg_lecture', function(req, res, next) {
+    res.render('Admin/Lecture/mg_lecture/mg_lecture',{ID:ID});
+});
+
+/*Admin-Lecturer page rendering*/
 router.get('/admin/mg_lecturer', function(req, res, next) {
     res.render('Admin/mg_lecturer/mg_lecturer',{ID:ID});
 });
+
+/*Admin-Notice page rendering*/
 router.get('/admin/mg_notice', function(req, res, next) {
     res.render('Admin/mg_notice/mg_notice',{ID:ID});
 });
+
+/*Admin-Mytask page rendering*/
 router.get('/admin/mytask', function(req, res, next) {
     res.render('Admin/mytask/mytask',{ID:ID});
 });
-router.get('/admin/student_info', function(req, res, next) {
-    res.render('Admin/student_info/student_info',{ID:ID});
-});
-router.get('/admin/student_status', function(req, res, next) {
-    res.render('Admin/student_status/student_status',{ID:ID});
-});
 
+
+/*Teacher page rendering*/
 router.get('/teacher', function(req, res, next) {
     res.redirect('teacher/notice')
 });
