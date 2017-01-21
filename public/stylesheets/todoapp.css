@@ -29,3 +29,7 @@
     border-radius: 5px;
 }
 
+.disabled{
+    text-decoration: line-through;
+}
+

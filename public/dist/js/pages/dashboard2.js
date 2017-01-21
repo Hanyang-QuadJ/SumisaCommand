@@ -21,19 +21,19 @@ $(function () {
     datasets: [
       {
         label: "학생수",
-        fillColor: "rgb(210, 214, 222)",
+        fillColor: "#ef776c",
         strokeColor: "rgb(210, 214, 222)",
-        pointColor: "rgb(210, 214, 222)",
-        pointStrokeColor: "#c1c7d1",
+        pointColor: "#ef776c",
+        pointStrokeColor: "#ef776c",
         pointHighlightFill: "#fff",
         pointHighlightStroke: "rgb(220,220,220)",
-        data: [65, 59, 80, 81, 56, 55, 40]
+        data: [75, 59, 80, 81, 56, 55, 70]
       },
       {
         label: "강좌수",
-        fillColor: "rgba(60,141,188,0.9)",
-        strokeColor: "rgba(60,141,188,0.8)",
-        pointColor: "#3b8bba",
+        fillColor: "#00aead",
+        strokeColor: "#00aead",
+        pointColor: "#00aead",
         pointStrokeColor: "rgba(60,141,188,1)",
         pointHighlightFill: "#fff",
         pointHighlightStroke: "rgba(60,141,188,1)",
