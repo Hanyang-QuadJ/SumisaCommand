@@ -10,6 +10,8 @@ $(function () {
   //-----------------------
   //- MONTHLY SALES CHART -
   //-----------------------
+    // Get context with jQuery - using jQuery's .get() method.
+
 
   // Get context with jQuery - using jQuery's .get() method.
   var salesChartCanvas = $("#salesChart").get(0).getContext("2d");
@@ -21,7 +23,7 @@ $(function () {
     datasets: [
       {
         label: "학생수",
-        fillColor: "#ef776c",
+        fillColor: "#c7c7c7",
         strokeColor: "rgb(210, 214, 222)",
         pointColor: "#ef776c",
         pointStrokeColor: "#ef776c",
@@ -81,8 +83,9 @@ $(function () {
     responsive: true
   };
 
-  //Create the line chart
-  salesChart.Line(salesChartData, salesChartOptions);
+    salesChart.Line(salesChartData, salesChartOptions);
+
+
 
   //---------------------------
   //- END MONTHLY SALES CHART -
