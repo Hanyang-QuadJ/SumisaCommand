@@ -31,6 +31,7 @@
 .skin-blue .main-header .navbar .sidebar-toggle:hover {
   background-color: #181818;
 }
+
 @media (max-width: 767px) {
   .skin-blue .main-header .navbar .dropdown-menu li.divider {
     background-color: rgba(255, 255, 255, 0.1);
@@ -39,7 +40,7 @@
     color: #fff;
   }
   .skin-blue .main-header .navbar .dropdown-menu li a:hover {
-    background: #0072c4;
+    background: #3e3e3e;
   }
 }
 .skin-blue .main-header .logo {
@@ -80,16 +81,17 @@
 }
 .skin-blue .sidebar-menu > li > .treeview-menu {
   margin: 0 1px;
-  background: #2c3b41;
+  background: #3e3e3e;
+  color: white;
 }
 .skin-blue .sidebar a {
-  color: #b8c7ce;
+  color: white;
 }
 .skin-blue .sidebar a:hover {
   text-decoration: none;
 }
 .skin-blue .treeview-menu > li > a {
-  color: #8aa4af;
+  color: white;
 }
 .skin-blue .treeview-menu > li.active > a,
 .skin-blue .treeview-menu > li > a:hover {

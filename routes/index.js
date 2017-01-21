@@ -92,7 +92,12 @@ router.get('/admin/mg_notice', function(req, res, next) {
 router.get('/admin/mytask', function(req, res, next) {
     res.render('Admin/mytask/mytask',{ID:ID});
 });
-
+router.get('/admin/student_info', function(req, res, next) {
+    res.render('Admin/student_info/student_info',{ID:ID});
+});
+router.get('/admin/student_status', function(req, res, next) {
+    res.render('Admin/student_status/student_status',{ID:ID});
+});
 
 router.get('/teacher', function(req, res, next) {
     res.redirect('teacher/notice')

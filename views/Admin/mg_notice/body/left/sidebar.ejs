@@ -23,7 +23,20 @@
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="mg_notice"><i class="fa fa-link"></i> <span>공지사항</span></a></li>
             <li><a href="mg_lecturer"><i class="fa fa-link"></i> <span>강사관리</span></a></li>
-            <li><a href="mg_student"><i class="fa fa-link"></i> <span>학생관리</span></a></li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-link"></i>
+                    <span>학생</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="student_status"><i class="fa fa-circle-o"></i> 학생현황</a></li>
+                    <li><a href="student_info"><i class="fa fa-circle-o"></i> 학생정보</a></li>
+                    <li><a href="mg_student"><i class="fa fa-circle-o"></i> 학생관리</a></li>
+                </ul>
+            </li>
             <li><a href="mytask"><i class="fa fa-link"></i> <span>임무</span></a></li>
         </ul>
         <!-- /.sidebar-menu -->
