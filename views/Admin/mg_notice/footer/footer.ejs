@@ -1,0 +1,27 @@
+<!-- REQUIRED JS SCRIPTS -->
+
+<!-- jQuery 2.2.3 -->
+<script src="/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/dist/js/app.min.js"></script>
+
+<!-- Optionally, you can add Slimscroll and FastClick plugins.
+     Both of these plugins are recommended to enhance the
+     user experience. Slimscroll is required when using the
+     fixed layout. -->
+<script>
+    function addCard(column){
+        console.log($(column).parents()[0]);
+
+        var card = $("<card>");
+
+        var cardHeader = $("<h4 />").addClass("header").text("New Header");
+        var cardDescription = $("<p />").text("New Description");
+        card.append(cardHeader).append(cardDescription);
+        console.log("card");
+        console.log(card);
+        $(column).parents()[0].append(card[0]);
+    }
+</script>

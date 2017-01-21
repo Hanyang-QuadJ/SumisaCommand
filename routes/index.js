@@ -78,8 +78,22 @@ router.get('/parent', function(req, res, next) {
     res.render('Parent/parent',{ID:ID});
 });
 router.get('/admin', function(req, res, next) {
-    res.render('admin');
+    res.redirect('admin/mg_notice');
 });
+router.get('/admin/mg_student', function(req, res, next) {
+    res.render('Admin/mg_student/mg_student',{ID:ID});
+});
+router.get('/admin/mg_lecturer', function(req, res, next) {
+    res.render('Admin/mg_lecturer/mg_lecturer',{ID:ID});
+});
+router.get('/admin/mg_notice', function(req, res, next) {
+    res.render('Admin/mg_notice/mg_notice',{ID:ID});
+});
+router.get('/admin/mytask', function(req, res, next) {
+    res.render('Admin/mytask/mytask',{ID:ID});
+});
+
+
 router.get('/teacher', function(req, res, next) {
     res.redirect('teacher/notice')
 });

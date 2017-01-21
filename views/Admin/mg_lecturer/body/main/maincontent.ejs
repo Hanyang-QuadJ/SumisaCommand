@@ -1,0 +1,65 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            강사
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+            <li class="active">Here</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container" ng-controller="ToDoController">
+            <div class="col-xs-12 col-sm-12 col-md-offset-3 col-md-7 col-lg-offset-3 col-lg-5">
+                <h2 class="todoapp-title text-center">임무</h2><code>You can do it!</code>
+                <!-- Form Starts Here -->
+                <div class="form">
+                    <div class="input-group input-group-lg">
+                        <input type="text" class="form-control" ng-model="task" placeholder="할 일을 입력하세요">
+                        <span class="input-group-btn">
+						<button class="btn btn-add btn-block" type="button" ng-click="addTask()"><span
+                                    class="glyphicon glyphicon-plus"></span> 추가</button>
+					</span>
+                    </div><!-- /input-group -->
+                </div>
+                <hr/>
+                <!-- Form Ends Here -->
+
+                <!-- Task List Starts Here -->
+                <ul class="list-group" ng-show="tasks.length > 0">
+                    <li class="list-group-item clearfix task" ng-repeat="todo in tasks" ng-class="{disabled: todo.done}">
+                        <p class="lead">{{todo.task}}</p>
+                        <div>
+						<span class="pull-right">
+							<button class="btn btn-edit btn-xs"><span class="glyphicon glyphicon-pencil"
+                                                                         ng-click="editTask($index)"></span></button>
+							<button class="btn btn-done btn-xs" ng-show="!todo.done"><span class="glyphicon glyphicon-ok"
+                                                                                              ng-click="doneTask($index)"></span></button>
+							<button class="btn btn-done btn-xs" ng-show="todo.done"><span class="glyphicon glyphicon-repeat"
+                                                                                             ng-click="unDoneTask($index)"></span></button>
+							<button class="btn btn-remove btn-xs"><span class="glyphicon glyphicon-remove"
+                                                                        ng-click="deleteTask($index)"></span></button>
+						</span>
+                        </div>
+                    </li>
+                </ul>
+                <!-- Task List Ends Here -->
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <!-- Your Page Content Here -->
+
+    </section>
+    <!-- /.content -->
+</div>
+<script src="/todo/js/angular.min.js"></script>
+<script src="/todo/js/app.js"></script>
