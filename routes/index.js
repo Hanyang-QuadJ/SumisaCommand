@@ -14,10 +14,6 @@ var student = function (s_id, s_name, s_school, s_phone, s_state) {
 };
 var s = new student();
 
-
-
-
-
 /* GET home page. */
 router.get(['/','/index'], function(req, res, next) {
     res.render('Login/index');
