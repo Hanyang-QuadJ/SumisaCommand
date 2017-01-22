@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var firebase = require('firebase');
 var ID = null;
+var userType = null;
 
 /* Student */
 var student = function (s_id, s_name, s_school, s_phone, s_state) {
@@ -31,6 +32,7 @@ router.get(['/','/index'], function(req, res, next) {
 /*Page redirecting based on ID*/
 router.post('/submit', function(req, res, next) {
     ID = req.body.ID;
+    userType = req.body.userType;
 
 
     const dbRefObject = firebase.database().ref().child('student');
