@@ -10,7 +10,16 @@ var users = require('./routes/users');
 
 
 var app = express();
+var firebase = require('firebase');
 
+var config = {
+    apiKey: "AIzaSyAnf59-0cgsAcDmplvQKHcXYCmTySAv3GA",
+    authDomain: "sumisa-50c79.firebaseapp.com",
+    databaseURL: "https://sumisa-50c79.firebaseio.com",
+    storageBucket: "sumisa-50c79.appspot.com",
+    messagingSenderId: "692869677834"
+};
+firebase.initializeApp(config);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

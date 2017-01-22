@@ -14,16 +14,6 @@ var student = function (s_id, s_name, s_school, s_phone, s_state) {
 };
 var s = new student();
 
-var config = {
-    apiKey: "AIzaSyAnf59-0cgsAcDmplvQKHcXYCmTySAv3GA",
-    authDomain: "sumisa-50c79.firebaseapp.com",
-    databaseURL: "https://sumisa-50c79.firebaseio.com",
-    storageBucket: "sumisa-50c79.appspot.com",
-    messagingSenderId: "692869677834"
-};
-firebase.initializeApp(config);
-
-
 /* GET home page. */
 router.get(['/','/index'], function(req, res, next) {
     res.render('Login/index');
@@ -31,6 +21,8 @@ router.get(['/','/index'], function(req, res, next) {
 
 router.get(['/','/indexError'], function(req, res, next) {
     res.render('Login/indexError');
+    res.send('<script type="text/javascript">alert("There is no ID matching");</script>');
+
 });
 
 /*Page redirecting based on ID*/
@@ -47,7 +39,6 @@ router.post('/submit', function(req, res, next) {
                 res.redirect('student');
             }else {
                 res.redirect('indexError');
-
             }
         });
 
@@ -63,6 +54,7 @@ router.post('/submit', function(req, res, next) {
         });
     }else if(userType == 'teacher') {
         const teacherRefObject = firebase.database().ref().child('teacher');
+
 
     }
 
