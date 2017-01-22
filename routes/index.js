@@ -14,20 +14,10 @@ var student = function (s_id, s_name, s_school, s_phone, s_state) {
 };
 var s = new student();
 
-<<<<<<< HEAD
-var config = {
-    apiKey: "AIzaSyAnf59-0cgsAcDmplvQKHcXYCmTySAv3GA",
-    authDomain: "sumisa-50c79.firebaseapp.com",
-    databaseURL: "https://sumisa-50c79.firebaseio.com",
-    storageBucket: "sumisa-50c79.appspot.com",
-    messagingSenderId: "692869677834"
-};
-
-firebase.initializeApp(config);
 
 
-=======
->>>>>>> master
+
+
 /* GET home page. */
 router.get(['/','/index'], function(req, res, next) {
     res.render('Login/index');
