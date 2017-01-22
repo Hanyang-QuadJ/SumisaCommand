@@ -126,7 +126,7 @@ router.get('/admin/mytask', function(req, res, next) {
 
 /*Teacher page rendering*/
 router.get('/teacher', function(req, res, next) {
-    res.redirect('teacher/notice')
+    res.redirect('teacher/notice');
 });
 router.get('/teacher/notice', function(req, res, next) {
     res.render('Teacher/notice/notice',{ID:ID});
