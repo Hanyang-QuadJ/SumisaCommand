@@ -32,4 +32,27 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
 <![endif]-->
+<SCRIPT LANGUAGE="JavaScript">
+    function chkBoxCheck(intChkNumber) {
+
+        // 체크박스 갯수만큼 반복문을 돌면서
+        for (j = 0; j < 3; j++) {
+
+            // 체크박스가 선택되어 있으면
+            if (eval("document.myForm.objChkBox[" + j + "].checked") == true) {
+
+                // 우선 체크박스의 속성을 선택되지 않음으로 하고
+                document.myForm.objChkBox[j].checked = false;
+
+                // 사용자가 클릭한 체크박스와 프로그래밍적으로 돌고 있는
+                // 체크박스의 번호가 같으면
+                if (j == intChkNumber) {
+
+                    // 이런 경우만 체크박스가 선택되도록 한다...
+                    document.myForm.objChkBox[j].checked = true;
+                }
+            }
+        }
+    }
+</script>
 

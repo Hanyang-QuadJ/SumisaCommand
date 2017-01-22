@@ -69,7 +69,9 @@
 .timetable section header {
     height: 46px;
     transform-style: preserve-3d;
-    font-size: 0
+    font-size: 0;
+    background-color: transparent;
+    color: #0b0b0b;
 }
 .timetable section header::after {
     clear: both;
