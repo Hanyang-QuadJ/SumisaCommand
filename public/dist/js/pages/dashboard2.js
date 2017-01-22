@@ -10,6 +10,8 @@ $(function () {
   //-----------------------
   //- MONTHLY SALES CHART -
   //-----------------------
+    // Get context with jQuery - using jQuery's .get() method.
+
 
   // Get context with jQuery - using jQuery's .get() method.
   var salesChartCanvas = $("#salesChart").get(0).getContext("2d");
@@ -17,23 +19,23 @@ $(function () {
   var salesChart = new Chart(salesChartCanvas);
 
   var salesChartData = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: ["1월", "2월", "3월", "4월", "5월", "6월", "7월"],
     datasets: [
       {
-        label: "Electronics",
-        fillColor: "rgb(210, 214, 222)",
+        label: "학생수",
+        fillColor: "#c7c7c7",
         strokeColor: "rgb(210, 214, 222)",
-        pointColor: "rgb(210, 214, 222)",
-        pointStrokeColor: "#c1c7d1",
+        pointColor: "#ef776c",
+        pointStrokeColor: "#ef776c",
         pointHighlightFill: "#fff",
         pointHighlightStroke: "rgb(220,220,220)",
-        data: [65, 59, 80, 81, 56, 55, 40]
+        data: [75, 59, 80, 81, 56, 55, 70]
       },
       {
-        label: "Digital Goods",
-        fillColor: "rgba(60,141,188,0.9)",
-        strokeColor: "rgba(60,141,188,0.8)",
-        pointColor: "#3b8bba",
+        label: "강좌수",
+        fillColor: "#00aead",
+        strokeColor: "#00aead",
+        pointColor: "#00aead",
         pointStrokeColor: "rgba(60,141,188,1)",
         pointHighlightFill: "#fff",
         pointHighlightStroke: "rgba(60,141,188,1)",
@@ -81,8 +83,9 @@ $(function () {
     responsive: true
   };
 
-  //Create the line chart
-  salesChart.Line(salesChartData, salesChartOptions);
+    salesChart.Line(salesChartData, salesChartOptions);
+
+
 
   //---------------------------
   //- END MONTHLY SALES CHART -

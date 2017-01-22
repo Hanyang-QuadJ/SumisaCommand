@@ -25,12 +25,15 @@
     width: 5%;
     padding: 0!important;
     margin-top: 46px;
-    border-right: 5px solid transparent
+    border-right: 5px solid transparent;
+    text-align: center;
 }
 .timetable aside li {
     padding: 0 15px;
-    background-color: #EFEFEF;
-    line-height: 46px
+    background-color: #3f3d40;
+    line-height: 46px;
+    color: white;
+    font-size: 13pt;
 }
 .timetable aside li:not(:last-of-type) {
     border-bottom: 1px solid #fff
@@ -52,14 +55,16 @@
     height: 46px
 }
 .timetable section {
-    width: 90%;
+    width: 95%;
     padding: 0!important;
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch
 }
 .timetable section time {
     white-space: nowrap;
-    display: inline-block
+    display: inline-block;
+
+
 }
 .timetable section header {
     height: 46px;
@@ -96,7 +101,8 @@
 }
 @media only screen and (max-width: 960px) {
     .timetable aside {
-        width: 13%
+        width: 15%;
+        text-aline:center;
     }
     .timetable section {
         width: 80%
@@ -166,6 +172,5 @@
     display: block
 }
 .timetable .time-entry:hover {
-    background-color: #ef6447;
-    border: 1px solid #ef6447;
+    background-color: #006867;
 }

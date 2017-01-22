@@ -1,0 +1,35 @@
+.todoapp-title{
+    font-size: 150%;
+}
+.btn-add{
+    background-color: #00aead;
+    color: white;
+}
+.btn-default:hover{
+    background-color: #007f7e;
+    color: white;
+
+}
+.btn-remove{
+    background-color: #ef6447;
+    color:white;
+    font-size: 120%;
+}
+.btn-edit{
+    background-color: #f5a646;
+    color:white;
+    font-size: 120%;
+}
+.btn-done{
+    background-color: #0f5498;
+    color:white;
+    font-size: 120%;
+}
+.form-control{
+    border-radius: 5px;
+}
+
+.disabled{
+    text-decoration: line-through;
+}
+

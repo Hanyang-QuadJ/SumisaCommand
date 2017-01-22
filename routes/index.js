@@ -11,6 +11,8 @@ var student = function (s_id, s_name, s_school, s_phone, s_state) {
     this.s_phone = s_phone;
     this.s_state = s_state;
 };
+var s = new student();
+
 var config = {
     apiKey: "AIzaSyAnf59-0cgsAcDmplvQKHcXYCmTySAv3GA",
     authDomain: "sumisa-50c79.firebaseapp.com",
@@ -30,17 +32,21 @@ router.get(['/','/index'], function(req, res, next) {
 router.post('/submit', function(req, res, next) {
     ID = req.body.ID;
 
-    var s = new student();
 
     const dbRefObject = firebase.database().ref().child('student');
 
     //If exists, return true
-    dbRefObject.once("value").then(function (snapshot) {
-
+    dbRefObject.orderByChild("s_id").equalTo(ID).once("value", function(snapshot) {
+        var userData = snapshot.val();
+        if (userData){
+            res.redirect('student');
+        }else {
+            console.log("There is no user for your ID");
+        }
     });
 
     //Ordering and finding
-    dbRefObject.orderByChild("s_id").equalTo("2014038122").on("child_added", function(snapshot) {
+    dbRefObject.orderByChild("s_id").equalTo(ID).on("child_added", function(snapshot) {
 
         s.s_name = snapshot.child('s_name').val();
         s.s_id = snapshot.child('s_id').val();
@@ -54,7 +60,7 @@ router.post('/submit', function(req, res, next) {
         res.redirect('teacher');
     }
     else if(ID == 'student') {
-        res.redirect('student');
+
     }
     else if(ID == 'admin'){
         res.redirect('admin');
@@ -66,14 +72,55 @@ router.post('/submit', function(req, res, next) {
 
 /*page rendering*/
 router.get('/student', function(req, res, next) {
-    res.render('Student/student',{ID:ID});
+    res.render('Student/student',{student: s});
 });
 router.get('/parent', function(req, res, next) {
     res.render('Parent/parent',{ID:ID});
 });
 router.get('/admin', function(req, res, next) {
-    res.render('admin');
+    res.redirect('admin/mg_notice');
 });
+
+
+/*Admin-Student page rendering*/
+router.get('/admin/mg_student', function(req, res, next) {
+    res.render('Admin/Student/mg_student/mg_student',{ID:ID});
+});
+router.get('/admin/student_info', function(req, res, next) {
+    res.render('Admin/Student/student_info/student_info',{ID:ID});
+});
+router.get('/admin/student_status', function(req, res, next) {
+    res.render('Admin/Student/student_status/student_status',{ID:ID});
+});
+
+/*Admin-Lecture page rendering*/
+router.get('/admin/lecture_status', function(req, res, next) {
+    res.render('Admin/Lecture/lecture_status/lecture_status',{ID:ID});
+});
+router.get('/admin/lecture_info', function(req, res, next) {
+    res.render('Admin/Lecture/lecture_info/lecture_info',{ID:ID});
+});
+router.get('/admin/mg_lecture', function(req, res, next) {
+    res.render('Admin/Lecture/mg_lecture/mg_lecture',{ID:ID});
+});
+
+/*Admin-Lecturer page rendering*/
+router.get('/admin/mg_lecturer', function(req, res, next) {
+    res.render('Admin/mg_lecturer/mg_lecturer',{ID:ID});
+});
+
+/*Admin-Notice page rendering*/
+router.get('/admin/mg_notice', function(req, res, next) {
+    res.render('Admin/mg_notice/mg_notice',{ID:ID});
+});
+
+/*Admin-Mytask page rendering*/
+router.get('/admin/mytask', function(req, res, next) {
+    res.render('Admin/mytask/mytask',{ID:ID});
+});
+
+
+/*Teacher page rendering*/
 router.get('/teacher', function(req, res, next) {
     res.redirect('teacher/notice')
 });
@@ -85,6 +132,9 @@ router.get('/teacher/lecturer', function(req, res, next) {
 });
 router.get('/teacher/mylecture', function(req, res, next) {
     res.render('Teacher/mylecture/mylecture',{ID:ID});
+});
+router.get('/teacher/data', function(req, res, next) {
+    res.render('Teacher/data/data',{ID:ID});
 });
 
 module.exports = router;
