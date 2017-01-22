@@ -29,34 +29,44 @@ router.get(['/','/index'], function(req, res, next) {
     res.render('Login/index');
 });
 
+router.get(['/','/indexError'], function(req, res, next) {
+    res.render('Login/indexError');
+});
+
 /*Page redirecting based on ID*/
 router.post('/submit', function(req, res, next) {
     ID = req.body.ID;
     userType = req.body.userType;
+    if (userType == 'student') {
+        const studentRefObject = firebase.database().ref().child('student');
+
+        //If exists, return true
+        studentRefObject.orderByChild("s_id").equalTo(ID).once("value", function(snapshot) {
+            var userData = snapshot.val();
+            if (userData){
+                res.redirect('student');
+            }else {
+                res.redirect('indexError');
+
+            }
+        });
+
+        //Ordering and finding
+        studentRefObject.orderByChild("s_id").equalTo(ID).on("child_added", function(snapshot) {
+
+            s.s_name = snapshot.child('s_name').val();
+            s.s_id = snapshot.child('s_id').val();
+            s.s_phone = snapshot.child('s_phone').val();
+            s.s_school = snapshot.child('s_school').val();
+            s.state = snapshot.child('s_state').val();
+
+        });
+    }else if(userType == 'teacher') {
+        const teacherRefObject = firebase.database().ref().child('teacher');
+
+    }
 
 
-    const dbRefObject = firebase.database().ref().child('student');
-
-    //If exists, return true
-    dbRefObject.orderByChild("s_id").equalTo(ID).once("value", function(snapshot) {
-        var userData = snapshot.val();
-        if (userData){
-            res.redirect('student');
-        }else {
-            res.redirect('index');
-        }
-    });
-
-    //Ordering and finding
-    dbRefObject.orderByChild("s_id").equalTo(ID).on("child_added", function(snapshot) {
-
-        s.s_name = snapshot.child('s_name').val();
-        s.s_id = snapshot.child('s_id').val();
-        s.s_phone = snapshot.child('s_phone').val();
-        s.s_school = snapshot.child('s_school').val();
-        s.state = snapshot.child('s_state').val();
-
-    });
 
     if(ID == 'teacher') {
         res.redirect('teacher');
