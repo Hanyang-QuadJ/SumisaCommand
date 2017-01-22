@@ -530,6 +530,10 @@ fieldset[disabled] .btn-success.active {
   margin-left: 42%;
 }
 .table_title{
+  color: #2C3E50;
+  font-size: 120%;
+}
+.chart_title{
   color: white;
   font-size: 120%;
 }
