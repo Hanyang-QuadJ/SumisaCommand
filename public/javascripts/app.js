@@ -26,4 +26,9 @@ app
 	$scope.deleteTask = function (index) {
 	  $scope.tasks.splice(index, 1);
 	}
-  }])
+  }]);
+var login = angular.module('loginApp', []);
+login
+	.controller('loginController', ['$scope', function ($scope) {
+	alert("!");
+    }]);
