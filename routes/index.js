@@ -21,6 +21,7 @@ var config = {
     storageBucket: "sumisa-50c79.appspot.com",
     messagingSenderId: "692869677834"
 };
+
 firebase.initializeApp(config);
 
 
