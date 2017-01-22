@@ -30,5 +30,7 @@ app
 var login = angular.module('loginApp', []);
 login
 	.controller('loginController', ['$scope', function ($scope) {
-	alert("!");
+	$scope.submit = function(){
+		alert("!");
+	}
     }]);
