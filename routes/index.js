@@ -43,7 +43,7 @@ router.post('/submit', function(req, res, next) {
         if (userData){
             res.redirect('student');
         }else {
-            console.log("There is no user for your ID");
+            res.redirect('index');
         }
     });
 
@@ -74,7 +74,7 @@ router.post('/submit', function(req, res, next) {
 
 /*page rendering*/
 router.get('/student', function(req, res, next) {
-    res.render('Student/student',{student: s});
+    res.render('Student/student',{Student: s});
 });
 router.get('/parent', function(req, res, next) {
     res.render('Parent/parent',{ID:ID});
