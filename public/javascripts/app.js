@@ -29,8 +29,10 @@ app
   }]);
 var login = angular.module('loginApp', []);
 login
-	.controller('loginController', ['$scope', function ($scope) {
-	$scope.submit = function(){
-		alert("!");
-	}
+    .controller('loginController', ['$scope', function ($scope) {
+        $scope.sex = '@@@';
+        $scope.submit = function(){
+            alert("!");
+            console.log("!!@@@@@@@@@!!");
+        }
     }]);
