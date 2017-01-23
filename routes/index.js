@@ -27,7 +27,7 @@ router.get(['/','/indexError'], function(req, res, next) {
 
 /*Page redirecting based on ID*/
 router.post('/submit', function(req, res, next) {
-    res.render('Student/student');
+    // res.render('Student/student');
     // ID = req.body.ID;
     // userType = req.body.userType;
     // if (userType == 'student') {

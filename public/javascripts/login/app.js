@@ -7,7 +7,7 @@ var student = function (s_id, s_name, s_school, s_phone, s_state) {
     this.s_state = s_state;
 };
 var s = new student();
-var login = angular.module('loginApp',  ["ngRoute"]);
+var login = angular.module('loginApp',  []);
 login.controller('loginController', ['$scope','$window', function ($scope,$window) {
         $scope.student = true;
         $scope.submit = function () {
@@ -36,18 +36,18 @@ login.controller('loginController', ['$scope','$window', function ($scope,$windo
                     s.state = snapshot.child('s_state').val();
 
                 });
+                console.log(s.s_name);
+                // $window.location.href= "student";
             }
         }
     }]);
-login.config(function($routeProvider) {
-    $routeProvider
-        .when("/login", {
-            template : "올바르지 않은 회원정보 입니다."
-        });
 
-});
-var student = angular.module('studentApp', []);
-student
-    .controller('profileController', ['$scope', function ($scope) {
-        // $scope.name =
+var studen = angular.module('studentApp', []);
+studen
+    .controller('introduceController', ['$scope', function ($scope) {
+         $scope.name = s.s_name;
+        $scope.id = s.s_id;
+        $scope.school = s.s_school;
+        $scope.phone = s.s_phone;
+        console.log(s.s_name);
     }]);
