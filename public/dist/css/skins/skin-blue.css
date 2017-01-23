@@ -73,11 +73,14 @@
 .skin-blue .sidebar-menu > li > a {
   border-left: 3px solid transparent;
 }
-.skin-blue .sidebar-menu > li:hover > a,
+.skin-blue .sidebar-menu > li:hover > a {
+  background: #1d1d1d;
+  border-left-color: #ef6447;
+}
 .skin-blue .sidebar-menu > li.active > a {
   color: #ffffff;
   background: #1d1d1d;
-  border-left-color: #ef6447;
+  border-left-color: #00aead;
 }
 .skin-blue .sidebar-menu > li > .treeview-menu {
   margin: 0 1px;

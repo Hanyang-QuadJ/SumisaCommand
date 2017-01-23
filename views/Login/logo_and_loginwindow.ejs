@@ -3,13 +3,18 @@
         <div class="header-content-inner">
             <!--로고-->
             <img src="../images/logo_bottom.png" width="40%" height="40%" alt="logo">
-            <br><br><br>
-            <br><br><br>
+            <br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br>
             <!--로그인창-->
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
+                        <form name= "myForm" method="post" action="/submit">
+                            <div class="checks etrans text-center">
+                                <input type="checkbox"  value="student" id="ex_chk1" name="objChkBox" onClick="chkBoxCheck(0)" checked="true">
+                                &nbsp;<label for="ex_chk1"><span class="selecttext"> &nbsp; 학생</span> &nbsp; &nbsp;</label>
 
+<<<<<<< HEAD
                         <form ng-submit = "submit()">
                             <label class="radio-inline">
                                 <input type="radio" name="userType" value = "student" checked = "true">학생
@@ -20,9 +25,18 @@
                             <label class="radio-inline">
                                 <input type="radio" name="userType" value = "teacher">선생님
                             </label>
+=======
+                                <input type="checkbox"  value="teacher" id="ex_chk2" name="objChkBox" onClick="chkBoxCheck(1)">
+                                <label for="ex_chk2"><span class="selecttext"> &nbsp; 강사</span> &nbsp; &nbsp;</label>
+
+                                <input type="checkbox"  value="admin" id="ex_chk3" name="objChkBox" onClick="chkBoxCheck(2)">
+                                <label for="ex_chk3"><span class="selecttext">&nbsp; 관리자</span> &nbsp; &nbsp;</label>
+                            </div>
+>>>>>>> master
                             <input type="text" class="form-control" name="ID" placeholder="아이디를 입력하세요">
                             <input type="password" class="form-control" name="PASSWORD" placeholder="패스워드를 입력하세요">
-                            <button name="login_button" type="submit" class="btn btn-primary btn-block">로그인</button></form>
+                            <button name="login_button" type="submit" class="btn btn-primary btn-block">로그인</button>
+                        </form>
                     </div>
                 </div>
             </div>

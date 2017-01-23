@@ -131,31 +131,34 @@ header .intro-text .skills {
 .navbar-custom .navbar-brand:focus,
 .navbar-custom .navbar-brand:active,
 .navbar-custom .navbar-brand.active {
-  color: #c8c704;
+  color: #ffda36;
 }
 .navbar-custom .navbar-nav {
   letter-spacing: 1px;
 }
 .navbar-custom .navbar-nav li a {
   color: white;
+  background-color: #2C3E50;
 }
 .navbar-custom .navbar-nav li a:hover {
-  color: #18BC9C;
+  background-color: white;
+  color: #2C3E50;
   outline: none;
 }
 .navbar-custom .navbar-nav li a:focus,
 .navbar-custom .navbar-nav li a:active {
-  color: white;
+  background-color: white;
+  color: #2C3E50;
 }
 .navbar-custom .navbar-nav li.active a {
-  color: white;
-  background: #18BC9C;
+  color: #2C3E50;
+  background: white;
 }
 .navbar-custom .navbar-nav li.active a:hover,
 .navbar-custom .navbar-nav li.active a:focus,
 .navbar-custom .navbar-nav li.active a:active {
-  color: white;
-  background: #18BC9C;
+  color: #2C3E50;
+  background: white;
 }
 .navbar-custom .navbar-toggle {
   color: white;
@@ -165,22 +168,21 @@ header .intro-text .skills {
 }
 .navbar-custom .navbar-toggle:hover,
 .navbar-custom .navbar-toggle:focus {
-  background-color: #18BC9C;
-  color: white;
-  border-color: #18BC9C;
+  background-color: white;
+  color: #2C3E50;
 }
 @media (min-width: 768px) {
   .navbar-custom {
     padding: 25px 0;
     -webkit-transition: padding 0.3s;
-    -moz-transition: padding 0.3s;
-    transition: padding 0.3s;
+    -moz-transition: padding 0.1s;
+    transition: padding 0.1s;
   }
   .navbar-custom .navbar-brand {
     font-size: 2em;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
+    -webkit-transition: all 0.1s;
+    -moz-transition: all 0.1s;
+    transition: all 0.1s;
   }
   .navbar-custom.affix {
     padding: 10px 0;
@@ -208,9 +210,16 @@ section.success {
     padding-top: 75px;
   }
 }
-#portfolio{
+
+#contact{
   background-color: #2C3E50;
   color: white;
+}
+
+
+#portfolio{
+  background-color: ghostwhite;
+  color: #2C3E50;
 }
 #portfolio .portfolio-item {
   margin: 0 0 15px;
@@ -310,14 +319,14 @@ form .row:first-child .floating-label-form-group {
   border-top: 1px solid #eeeeee;
 }
 footer {
-  color: white;
+  color: #2C3E50;
 }
 footer h3 {
   margin-bottom: 30px;
 }
 footer .footer-above {
   padding-top: 50px;
-  background-color: #2C3E50;
+  background-color: ghostwhite;
 }
 footer .footer-col {
   margin-bottom: 50px;
@@ -325,6 +334,7 @@ footer .footer-col {
 footer .footer-below {
   padding: 25px 0;
   background-color: #233140;
+  color: white;
 }
 .btn-outline {
   color: white;
@@ -520,4 +530,15 @@ fieldset[disabled] .btn-success.active {
 }
 .intro-text{
   margin-left: 42%;
+}
+.table_title{
+  color: #2C3E50;
+  font-size: 120%;
+}
+.chart_title{
+  color: white;
+  font-size: 120%;
+}
+/*.scoregraph{
+  width: 100%;
 }

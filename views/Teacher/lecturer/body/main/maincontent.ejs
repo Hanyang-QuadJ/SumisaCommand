@@ -12,54 +12,75 @@
 
     <!-- Main content -->
     <section class="content">
-        <div class="container" ng-controller="ToDoController">
-            <div class="col-xs-12 col-sm-12 col-md-offset-3 col-md-7 col-lg-offset-3 col-lg-5">
-                <h2 class="todoapp-title text-center">임무</h2><code>You can do it!</code>
-                <!-- Form Starts Here -->
-                <div class="form">
-                    <div class="input-group input-group-lg">
-                        <input type="text" class="form-control" ng-model="task" placeholder="할 일을 입력하세요">
-                        <span class="input-group-btn">
-						<button class="btn btn-add btn-block" type="button" ng-click="addTask()"><span
-                                    class="glyphicon glyphicon-plus"></span> 추가</button>
+        <div class="todolist" ng-app="todomvc">
+            <ng-view />
+
+            <script type="text/ng-template" id="todomvc-index.html">
+                <section id="todoapp">
+                    <header id="header">
+                        <h1>todos</h1>
+                        <form id="todo-form" ng-submit="addTodo()">
+                            <input id="new-todo" placeholder="What needs to be done?" ng-model="newTodo" ng-disabled="saving" autofocus>
+                        </form>
+                    </header>
+                    <section id="main" ng-show="todos.length" ng-cloak>
+                        <input id="toggle-all" type="checkbox" ng-model="allChecked" ng-click="markAll(allChecked)">
+                        <label for="toggle-all">Mark all as complete</label>
+                        <ul id="todo-list">
+                            <li ng-repeat="todo in todos | filter:statusFilter track by $index" ng-class="{completed: todo.completed, editing: todo == editedTodo}">
+                                <div class="view">
+                                    <input class="toggle" type="checkbox" ng-model="todo.completed" ng-change="toggleCompleted(todo)">
+                                    <label ng-dblclick="editTodo(todo)">{{todo.title}}</label>
+                                    <button class="destroy" ng-click="removeTodo(todo)"></button>
+                                </div>
+                                <form ng-submit="saveEdits(todo, 'submit')">
+                                    <input class="edit" ng-trim="false" ng-model="todo.title" todo-escape="revertEdits(todo)" ng-blur="saveEdits(todo, 'blur')" todo-focus="todo == editedTodo">
+                                </form>
+                            </li>
+                        </ul>
+                    </section>
+                    <footer id="footer" ng-show="todos.length" ng-cloak>
+					<span id="todo-count"><strong>{{remainingCount}}</strong>
+						<ng-pluralize count="remainingCount" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
 					</span>
-                    </div><!-- /input-group -->
-                </div>
-                <hr/>
-                <!-- Form Ends Here -->
+                        <ul id="filters">
+                            <li>
+                                <a ng-class="{selected: status == ''} " href="#/">All</a>
+                            </li>
+                            <li>
+                                <a ng-class="{selected: status == 'active'}" href="#/active">Active</a>
+                            </li>
+                            <li>
+                                <a ng-class="{selected: status == 'completed'}" href="#/completed">Completed</a>
+                            </li>
+                        </ul>
+                        <button id="clear-completed" ng-click="clearCompletedTodos()" ng-show="completedCount">Clear completed</button>
+                    </footer>
+                </section>
+                <footer id="info">
+                    <p>Double-click to edit a todo</p>
+                    <p>Credits:
+                        <a href="http://twitter.com/cburgdorf">Christoph Burgdorf</a>,
+                        <a href="http://ericbidelman.com">Eric Bidelman</a>,
+                        <a href="http://jacobmumm.com">Jacob Mumm</a> and
+                        <a href="http://blog.igorminar.com">Igor Minar</a>
+                    </p>
+                    <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
+                </footer>
+            </script>
 
-                <!-- Task List Starts Here -->
-                <ul class="list-group" ng-show="tasks.length > 0">
-                    <li class="list-group-item clearfix task" ng-repeat="todo in tasks" ng-class="{disabled: todo.done}">
-                        <p class="lead">{{todo.task}}</p>
-                        <div>
-						<span class="pull-right">
-							<button class="btn btn-edit btn-xs"><span class="glyphicon glyphicon-pencil"
-                                                                         ng-click="editTask($index)"></span></button>
-							<button class="btn btn-done btn-xs" ng-show="!todo.done"><span class="glyphicon glyphicon-ok"
-                                                                                              ng-click="doneTask($index)"></span></button>
-							<button class="btn btn-done btn-xs" ng-show="todo.done"><span class="glyphicon glyphicon-repeat"
-                                                                                             ng-click="unDoneTask($index)"></span></button>
-							<button class="btn btn-remove btn-xs"><span class="glyphicon glyphicon-remove"
-                                                                        ng-click="deleteTask($index)"></span></button>
-						</span>
-                        </div>
-                    </li>
-                </ul>
-                <!-- Task List Ends Here -->
-            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-resource.js"></script>
+            <script src="/vendor/todomvc/todomvc-common/base.js"></script>
+            <script src="/javascripts/todomvc/app.js"></script>
+
+            <script src="/javascripts/todomvc/controllers/todoCtrl.js"></script>
+            <script src="/javascripts/todomvc/services/todoStorage.js"></script>
+            <script src="/javascripts/todomvc/directives/todoFocus.js"></script>
+            <script src="/javascripts/todomvc/directives/todoEscape.js"></script>
         </div>
-
-
-
-
-
-
-
-        <!-- Your Page Content Here -->
 
     </section>
     <!-- /.content -->
 </div>
-<script src="/javascripts/angular.min.js"></script>
-<script src="/javascripts/app.js"></script>
