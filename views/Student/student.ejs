@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" ng-app = "studentApp">
+<html lang="ko" >
 
 <head>
     <% include header/header.ejs %>
@@ -7,10 +7,26 @@
     <body id="page-top" class="index">
         <!-- Main Section -->
         <% include body/body.ejs %>
-        <script src="/javascripts/angular.min.js"></script>
-        <script src="/javascripts/login/app.js" type="text/javascript"></script>
+        <!--<script src="/javascripts/angular.min.js"></script>-->
+        <!--<script src="/javascripts/login/app.js" type="text/javascript"></script>-->
     </body>
 
     <!-- Footer -->
     <% include footer/footer.ejs%>
+<!--<script src="/javascripts/angular.min.js"></script>-->
+<script src="/javascripts/login/app.js" type="text/javascript"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>-->
+<script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+<script src="https://cdn.firebase.com/libs/angularfire/2.2.0/angularfire.min.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyAnf59-0cgsAcDmplvQKHcXYCmTySAv3GA",
+        authDomain: "sumisa-50c79.firebaseapp.com",
+        databaseURL: "https://sumisa-50c79.firebaseio.com",
+        storageBucket: "sumisa-50c79.appspot.com",
+        messagingSenderId: "692869677834"
+    };
+    firebase.initializeApp(config);
+</script>
 </html>
