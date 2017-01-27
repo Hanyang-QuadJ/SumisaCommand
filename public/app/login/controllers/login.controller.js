@@ -1,41 +1,33 @@
 (function(){
+    "use strict";
     angular
         .module('app.login')
         .controller('loginController',loginController);
 
 
-    loginController.$inject = ['$window','$timeout','$cookies'];
+    loginController.$inject = ['loginService'];
 
 
-    function loginController($window,$timeout,$cookies) {
+    function loginController(loginService) {
 
         var vm = this;
-        const studentRefObject = firebase.database().ref().child('student');
+        vm.submit = submit;
+        vm.ID = "";
 
-        vm.submit = function () {
-            //If exists, return true
-            var ID = vm.ID;
-            $cookies.put('ID',ID);
-            studentRefObject.orderByChild("s_id").equalTo(vm.ID).once("value", function(snapshot) {
 
-                var userData = snapshot.val();
+        function submit(){
 
-                $timeout(function() {
-                    if (userData===null){
-                        $window.location.href= "index";
-                    }else {
-                        $window.location.href= "student";
-                    }
-                });
-            });
-        }
+            loginService.authenticate(vm.ID);
 
-    };
+        };
+
+
+
+    }
 })();
 
 
 
 
 
-// var checking = function() {
 
