@@ -4,18 +4,19 @@
         .controller('loginController',loginController);
 
 
-    loginController.$inject = ['$scope','$window','$timeout','$cookies'];
+    loginController.$inject = ['$window','$timeout','$cookies'];
 
 
-    function loginController($scope,$window,$timeout,$cookies) {
+    function loginController($window,$timeout,$cookies) {
 
+        var vm = this;
         const studentRefObject = firebase.database().ref().child('student');
 
-        $scope.submit = function () {
+        vm.submit = function () {
             //If exists, return true
-            ID = $scope.ID;
+            var ID = vm.ID;
             $cookies.put('ID',ID);
-            studentRefObject.orderByChild("s_id").equalTo(ID).once("value", function(snapshot) {
+            studentRefObject.orderByChild("s_id").equalTo(vm.ID).once("value", function(snapshot) {
 
                 var userData = snapshot.val();
 

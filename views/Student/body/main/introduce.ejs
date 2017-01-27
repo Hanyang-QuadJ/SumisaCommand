@@ -3,11 +3,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <img class="img-responsive" src="img/profile.png" width="180px" height="180px" alt="">
-                <div class="intro-text" ng-controller="introduceController">
-                    <span class="name">{{name}}</span><br>
-                    <span class="skills"><i class="xi-cake">{{id}}</i></span><br>
-                    <span class="skills"><i class="xi-school"> {{school}}</i></span><br>
-                    <span class="skills"><i class="xi-pen"> {{phone}}</i></span><br>
+                <div class="intro-text" ng-controller="introduceController as introduce">
+                    <span class="name">{{introduce.name}}</span><br>
+                    <span class="skills"><i class="xi-cake">{{introduce.id}}</i></span><br>
+                    <span class="skills"><i class="xi-school"> {{introduce.school}}</i></span><br>
+                    <span class="skills"><i class="xi-pen"> {{introduce.phone}}</i></span><br>
                 </div>
             </div>
         </div>
