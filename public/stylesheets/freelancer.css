@@ -138,7 +138,7 @@ header .intro-text .skills {
 }
 .navbar-custom .navbar-nav li a {
   color: white;
-  background-color: #2C3E50;
+  background-color: #233140;
 }
 .navbar-custom .navbar-nav li a:hover {
   background-color: white;
@@ -147,8 +147,8 @@ header .intro-text .skills {
 }
 .navbar-custom .navbar-nav li a:focus,
 .navbar-custom .navbar-nav li a:active {
-  background-color: white;
-  color: #2C3E50;
+  background-color: #233140;
+  color: white;
 }
 .navbar-custom .navbar-nav li.active a {
   color: #2C3E50;
