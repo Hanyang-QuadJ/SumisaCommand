@@ -147,3 +147,6 @@
   color: white;
   font-size: 75%;
 }
+.thickline{
+  border: 1pt #616161 solid;
+}
