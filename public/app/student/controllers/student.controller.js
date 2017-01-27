@@ -1,5 +1,5 @@
 (function(){
-
+    'use strict';
     angular
         .module('app.student')
         .controller('introduceController',introduceController);
@@ -9,6 +9,8 @@
 
 
     function introduceController($scope,$timeout,$cookies) {
+
+        var vm = this;
 
         const studentRefObject = firebase.database().ref().child('student');
 
@@ -35,10 +37,10 @@
             s.s_state = snapshot.child('s_state').val();
 
             $timeout(function() {
-                $scope.name = s.s_name;
-                $scope.id = s.s_id;
-                $scope.phone = s.s_phone;
-                $scope.school = s.s_school;
+                vm.name = s.s_name;
+                vm.id = s.s_id;
+                vm.phone = s.s_phone;
+                vm.school = s.s_school;
 
             });
         });
