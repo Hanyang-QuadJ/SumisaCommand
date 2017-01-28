@@ -1,5 +1,6 @@
 (function(){
     "use strict";
+
     angular
         .module('app.login')
         .controller('loginController',loginController);
@@ -11,6 +12,7 @@
     function loginController(loginService) {
 
         var vm = this;
+
         vm.submit = submit;
         vm.ID = "";
 
