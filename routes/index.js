@@ -91,39 +91,39 @@ router.get('/#/login',function(req, res, next){
 
 /*Admin-Student page rendering*/
 router.get('/admin/mg_student', function(req, res, next) {
-    res.render('Admin/Student/mg_student/mg_student',{ID:ID});
+    res.render('Admin/Student/mg_student/mg_student');
 });
 router.get('/admin/student_info', function(req, res, next) {
-    res.render('Admin/Student/student_info/student_info',{ID:ID});
+    res.render('Admin/Student/student_info/student_info');
 });
 router.get('/admin/student_status', function(req, res, next) {
-    res.render('Admin/Student/student_status/student_status',{ID:ID});
+    res.render('Admin/Student/student_status/student_status');
 });
 
 /*Admin-Lecture page rendering*/
 router.get('/admin/lecture_status', function(req, res, next) {
-    res.render('Admin/Lecture/lecture_status/lecture_status',{ID:ID});
+    res.render('Admin/Lecture/lecture_status/lecture_status');
 });
 router.get('/admin/lecture_info', function(req, res, next) {
-    res.render('Admin/Lecture/lecture_info/lecture_info',{ID:ID});
+    res.render('Admin/Lecture/lecture_info/lecture_info');
 });
 router.get('/admin/mg_lecture', function(req, res, next) {
-    res.render('Admin/Lecture/mg_lecture/mg_lecture',{ID:ID});
+    res.render('Admin/Lecture/mg_lecture/mg_lecture');
 });
 
 /*Admin-Lecturer page rendering*/
 router.get('/admin/mg_lecturer', function(req, res, next) {
-    res.render('Admin/mg_lecturer/mg_lecturer',{ID:ID});
+    res.render('Admin/mg_lecturer/mg_lecturer');
 });
 
 /*Admin-Notice page rendering*/
 router.get('/admin/mg_notice', function(req, res, next) {
-    res.render('Admin/mg_notice/mg_notice',{ID:ID});
+    res.render('Admin/mg_notice/mg_notice');
 });
 
 /*Admin-Mytask page rendering*/
 router.get('/admin/mytask', function(req, res, next) {
-    res.render('Admin/mytask/mytask',{ID:ID});
+    res.render('Admin/mytask/mytask');
 });
 
 

@@ -1,9 +1,25 @@
-<!-- REQUIRED JS SCRIPTS -->
-<script src="http://listjs.com/assets/javascripts/list.min.js"></script>
+
 <!-- jQuery 2.2.3 -->
 <script src="/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="/plugins/datatables/jquery.dataTables.js"></script>
+<script src="/admin_mglecture/angular.min.js"></script>
+<script src="/admin_mglecture/angular-datatables.min.js"></script>
+<script src="/admin_mglecture/angularWayDataChange.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.6.1/angular-resource.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+<!--<script src="https://cdn.datatables.net/responsive/2.0.2/js/dataTables.responsive.min.js"></script>-->
+<!--<script src="/plugins/datatables/dataTables.bootstrap.min.js"></script>> // dataTables.responsive-->
+<!--<script src="https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"></script>-->
+<!--<script src="//cdn.datatables.net/buttons/1.0.0/js/buttons.bootstrap.js"></script>-->
+<!--<script src="https://cdn.datatables.net/select/1.2.1/js/dataTables.select.min.js"></script>-->
+<!--<script src="dataTables.altEditor.free.js"></script>-->
+<!--<script src="/admin_mglecture/app.js"></script>-->
+
+
+
+
 <!-- Select2 -->
 <script src="/plugins/select2/select2.full.min.js"></script>
 <!-- InputMask -->
@@ -35,8 +51,11 @@
 
 
 <!--<script src="/admin_mglecture/lecturetable.js"></script>-->
-<script src="/admin_mglecture/example.js"></script>
-<script src="/admin_mglecture/dataTables.editor.js"></script>
+<!--<script src="/admin_mglecture/example.js"></script>-->
+
+
+
+
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/dist/js/pages/connectedSortable.js"></script>
@@ -119,93 +138,40 @@
     });
 </script>
 
-<!-- DataTables -->
-<script src="/plugins/datatables/jquery.dataTables.js"></script>
-<script src="/plugins/datatables/dataTables.bootstrap.min.js"></script>
 
-<script>
-    $(function () {
-        $("#example1").DataTable();
-        $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false
-        });
-    });
 
-    var editor; // use a global for the submit and return data rendering in the examples
 
-    $(document).ready(function() {
-        editor = new $.fn.dataTable.Editor( {
-            ajax: "../php/staff.php",
-            table: "#example",
-            fields: [ {
-                label: "First name:",
-                name: "first_name"
-            }, {
-                label: "Last name:",
-                name: "last_name"
-            }, {
-                label: "Position:",
-                name: "position"
-            }, {
-                label: "Office:",
-                name: "office"
-            }, {
-                label: "Extension:",
-                name: "extn"
-            }, {
-                label: "Start date:",
-                name: "start_date",
-                type: "datetime"
-            }, {
-                label: "Salary:",
-                name: "salary"
-            }
-            ]
-        } );
 
-        // Activate an inline edit on click of a table cell
-        $('#example').on( 'click', 'tbody td:not(:first-child)', function (e) {
-            editor.inline( this );
-        } );
+<!--<script>-->
+    <!--$(function () {-->
+        <!--$("#example1").DataTable();-->
+        <!--$('#example2').DataTable({-->
+            <!--"paging": true,-->
+            <!--"lengthChange": false,-->
+            <!--"searching": false,-->
+            <!--"ordering": true,-->
+            <!--"info": true,-->
+            <!--"autoWidth": false-->
+        <!--});-->
+    <!--});-->
 
-        $('#example').DataTable( {
-            dom: "Bfrtip",
-            ajax: "../php/staff.php",
-            order: [[ 1, 'asc' ]],
-            columns: [
-                {
-                    data: null,
-                    defaultContent: '',
-                    className: 'select-checkbox',
-                    orderable: false
-                },
-                { data: "first_name" },
-                { data: "last_name" },
-                { data: "position" },
-                { data: "office" },
-                { data: "start_date" },
-                { data: "salary", render: $.fn.dataTable.render.number( ',', '.', 0, '$' ) }
-            ],
-            select: {
-                style:    'os',
-                selector: 'td:first-child'
-            },
-            buttons: [
-                { extend: "create", editor: editor },
-                { extend: "edit",   editor: editor },
-                { extend: "remove", editor: editor }
-            ]
-        } );
-    } );
-</script>
 
-<script src="https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"></script>
-<script src="https://cdn.datatables.net/select/1.2.1/js/dataTables.select.min.js"></script>
+
+<!--</script>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

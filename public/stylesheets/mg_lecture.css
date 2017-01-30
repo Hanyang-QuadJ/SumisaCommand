@@ -9,3 +9,7 @@
     padding: 1%;
     font-size: 100%;
 }
+
+.table_head{
+    border: red solid 2px;
+}
