@@ -25,211 +25,72 @@
 
 
                         <div class="box-body">
-                            <div id="contacts">
-                                <table id="example1" class="table table-bordered table-striped">
-                                    <thead>
-                                    <input type="text" class="search" placeholder="찾고 싶은 형태를 검색하세요." />
-                                    <tr>
-                                        <th style="width:55%" class="sort" data-sort="name">강좌 형태 이름</th>
-                                        <th class="sort" data-sort="date">등록 날짜</th>
-                                        <th class="sort" data-sort="edit">편집</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody class="list">
-                                    <tr>
-                                        <td class="id" style="display:none;">1</td>
-                                        <td class="name">단과 2017년 여름특강</td>
-                                        <td class="date">09/12/2017</td>
+                            <div>
+                                <div ng-controller="adminLectureManageController as showCase">
+                                    <form ng-submit="showCase.addPerson()">
+                                        <label>등록 번호:</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-file-text"></i></span>
+                                            <input type="number" class="form-control" name="id" ng-model="showCase.person2Add.id" placeholder="예)1">
+                                        </div>
+                                        <br>
 
-                                        <td class="edit"><button class="edit-item-btn btn btn-xs"><span class="fa fa-pencil"></span></button> <button class="remove-item-btn btn btn-xs"><span class="glyphicon glyphicon-remove"></span></button></td>
+                                        <label>형태 이름:</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            <input type="text" class="form-control"  name="firstName" ng-model="showCase.person2Add.firstName" placeholder="예) 단과 2017년 겨울특강">
+                                        </div>
+                                        <br>
+                                        <label>등록 날짜:</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            <input type="text" class="form-control" name="lastName" ng-model="showCase.person2Add.lastName" placeholder="예) 08/12/2016" data-inputmask='"mask": "99/99/9999"' data-mask>
+                                        </div>
+                                        <br>
 
-                                    </tr>
-                                    <tr>
-                                        <td class="id" style="display:none;">2</td>
-                                        <td class="name">단과 2017년 겨울특강</td>
-                                        <td class="date">-08/14/2016</td>
+                                        <div class="text-center add">
+                                            <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                                        </div>
 
-                                        <td class="edit"><button class="edit-item-btn btn btn-xs"><span class="fa fa-pencil"></span></button> <button class="remove-item-btn btn btn-xs"><span class="glyphicon glyphicon-remove"></span></button></td>
+                                        <table datatable="ng" dt-options="showCase.dtOptions" dt-column-defs="showCase.dtColumnDefs" class="row-border hover">
+                                            <thead>
+                                            <tr>
+                                                <th class="text-center" style="width:8%">번호</th>
+                                                <th class="text-center" style="width: 55%">형태 이름</th>
+                                                <th class="text-center">등록 날짜</th>
+                                                <th class="text-center"style="width:10%">편집</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr ng-repeat="person in showCase.persons">
+                                                <td class="text-center">{{ person.id }}</td>
+                                                <td class="text-center">{{ person.firstName }}</td>
+                                                <td class="text-center">
+                                                    {{ person.lastName }}
+                                                </td>
+                                                <td class="text-center">
+                                                    <button type="button" ng-click="showCase.modifyPerson($index)" class="btn btn-warning"><i class="fa fa-edit"></i></button>
+                                                    <button type="button" ng-click="showCase.removePerson($index)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
 
-                                    </tr>
-                                    <tr>
+                                        <p class="text-danger">You clicked on: <strong>{{ showCase.message }}</strong></p>
 
-                                        <td class="name">단과 2017년 정규반</td>
-                                        <td class="date">-01/23/2018</td>
-                                        <td class="edit"><button class="edit-item-btn btn btn-xs"><span class="fa fa-pencil"></span></button> <button class="remove-item-btn btn btn-xs"><span class="glyphicon glyphicon-remove"></span></button></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                                <table>
-                                    <td class="name">
-                                        <input type="hidden" id="id-field" />
-                                    </td>
-                                </table>
-                            </div>
 
-                            <label>형태 이름:</label>
-                            <div class="form">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-file-text"></i></span>
-                                    <input type="text" class="form-control" placeholder="예) 단과 2017년 여름특강" id="name-field">
-                                </div>
-                                <br>
-
-                                <label>등록 날짜:</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </div>
-                                    <input type="text" class="form-control" id="date-field" placeholder="예) 08/12/2016" data-inputmask='"mask": "99/99/9999"' data-mask>
-                                </div>
-                                <br>
-
-                                <div class="text-center add">
-                                    <button type="submit" class="btn btn-default" id="add-btn">추가</button>
-                                    <button type="submit" class="btn btn-default" id="edit-btn">수정</button>
-                                    <button type="submit" class="btn btn-default" id="remove-btn">삭제</button>
-                                </div>
+                                    </form>
                             </div>
 
                         </div>
-                    </div>
             </div>
 
-            <div class="col-md-12 connectedSortable">
-                <div class="box box-default box-solid">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">강좌 등록</h3>
-                        <div class="box-tools pull-right">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                            </button>
-                        </div>
-                    </div>
 
 
-
-                    <div class="box-body">
-                        <div class="form-group">
-                            <label>강좌 목록:</label>
-                            <select  class="form-control select2" style="width: 100%;">
-                                <option class="lead task" value="0" ng-show="tasks.length > 0" ng-repeat="todo in tasks">{{todo.task}}</option>
-                            </select>
-                        </div>
-
-                        <br>
-
-
-                        <!-- Date -->
-                        <br>
-                        <label>등록 날짜:</label>
-                        <div class="input-group">
-                            <div class="input-group-addon">
-                                <i class="fa fa-calendar"></i>
-                            </div>
-                            <input type="text" class="form-control" placeholder="예) 08/12/2016" data-inputmask='"mask": "99/99/9999"' data-mask>
-                        </div>
-                        <br>
-                        <!--강좌형태 등록 -->
-                        <div class="form-group">
-                            <label>강좌 형태:</label>
-                            <select class="form-control select2" style="width: 100%;">
-                                <option selected="selected">단과 2017 겨울특강</option>
-                                <option>단과 2017 여름특강</option>
-                                <option>단과 2017년 1학기 맞춤반</option>
-                            </select>
-                        </div>
-
-                        <!--Name-->
-                        <label>강좌 이름:</label>
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-file-text"></i></span>
-                            <input type="name" class="form-control" placeholder="강좌 이름을 입력하세요">
-                        </div>
-                        <br>
-                        <hr class="thickline">
-                        <div class="form-group">
-                            <label>강좌 요일1</label>
-                            <select class="form-control select2" style="width: 100%;">
-                                <option selected="selected">월</option>
-                                <option>화</option>
-                                <option>수</option>
-                                <option>목</option>
-                                <option>금</option>
-                                <option>토</option>
-                                <option>일</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label>시작시간을 입력하세요</label>
-
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-clock-o"></i>
-                                </div>
-                                <input type="text" class="form-control" placeholder="예) 17:00" data-inputmask='"mask": "99:99"' data-mask>
-                            </div>
-                            <!-- /.input group -->
-                        </div>
-
-                        <div class="form-group">
-                            <label>종료시간을 입력하세요</label>
-
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-clock-o"></i>
-                                </div>
-                                <input type="text" class="form-control" placeholder="예) 19:00" data-inputmask='"mask": "99:99"' data-mask>
-                            </div>
-                            <!-- /.input group -->
-                        </div>
-                        <br>
-                        <hr class="thickline">
-                        <div class="form-group">
-                            <label>강좌 요일2</label>
-                            <select class="form-control select2" style="width: 100%;">
-                                <option selected="selected">월</option>
-                                <option>화</option>
-                                <option>수</option>
-                                <option>목</option>
-                                <option>금</option>
-                                <option>토</option>
-                                <option>일</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label>시작시간을 입력하세요</label>
-
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-clock-o"></i>
-                                </div>
-                                <input type="text" class="form-control" placeholder="예) 17:00" data-inputmask='"mask": "99:99"' data-mask>
-                            </div>
-                            <!-- /.input group -->
-                        </div>
-
-                        <div class="form-group">
-                            <label>종료시간을 입력하세요</label>
-
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-clock-o"></i>
-                                </div>
-                                <input type="text" class="form-control" placeholder="예) 19:00" data-inputmask='"mask": "99:99"' data-mask>
-                            </div>
-                            <!-- /.input group -->
-                        </div>
-
-
-
-
-                        <div class="box-footer text-center">
-                            <button type="submit" class="btn btn-primary">등록</button>
-                        </div>
-
-
-                    </div>
                     <!-- /.box-body -->
                 </div>
                 <div class="box box-danger">

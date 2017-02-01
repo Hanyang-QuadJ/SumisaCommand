@@ -2,6 +2,7 @@
     'use strict';
     angular.module('sumisaApp', [
         'app.login',
-        'app.student'
+        'app.student',
+        'app.admin'
     ]);
 })();
