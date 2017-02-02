@@ -5,12 +5,13 @@
         .controller('introduceController',introduceController);
 
 
-    introduceController.$inject = ['$cookies','studentService'];
+    introduceController.$inject = ['studentService'];
 
 
-    function introduceController($cookies,studentService) {
+    function introduceController(studentService) {
 
         var vm = this;
+
         studentService.studentInfo().then(
             function(s) {
                 vm.name = s.s_name;
