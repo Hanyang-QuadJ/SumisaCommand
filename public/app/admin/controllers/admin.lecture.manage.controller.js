@@ -5,11 +5,33 @@
         .module('app.admin')
         .controller('adminLectureManageController', adminLectureManageController);
 
-    adminLectureManageController.$inject = ['$resource', 'DTOptionsBuilder', 'DTColumnDefBuilder'];
+    adminLectureManageController.$inject = [
+        '$resource',
+        'DTOptionsBuilder',
+        'DTColumnDefBuilder',
+        'adminLectureManageService',
+        '$firebaseArray'
+    ];
 
-    function adminLectureManageController($resource, DTOptionsBuilder, DTColumnDefBuilder) {
+    function adminLectureManageController(
+        $resource,
+        DTOptionsBuilder,
+        DTColumnDefBuilder,
+        adminLectureManageService,
+        $firebaseArray
+    ) {
+
         var vm = this;
-        vm.persons = $resource('/admin_mglecture/data1.json').query();
+        adminLectureManageService.studentInfo().then(
+            function(s) {
+                vm.students = s;
+                vm.persons = s;
+            },
+            function(err) {
+                // handle error
+            }
+        )
+
         vm.dtOptions = DTOptionsBuilder.newOptions()
             .withOption("order", [[1, "asc"]])
             .withPaginationType('full_numbers');
@@ -34,15 +56,16 @@
             };
         }
         function addPerson() {
-            vm.persons.push(angular.copy(vm.person2Add));
+            vm.persons.$add(angular.copy(vm.person2Add));
             vm.person2Add = _buildPerson2Add(vm.person2Add.id + 1);
         }
         function modifyPerson(index) {
             vm.persons.splice(index, 1, angular.copy(vm.person2Add));
             vm.person2Add = _buildPerson2Add(vm.person2Add.id + 1);
         }
-        function removePerson(index) {
-            vm.persons.splice(index, 1);
+        function removePerson(person) {
+            vm.persons.$remove(person);
+            // vm.persons.splice(index, 1);
         }
         function someClickHandler(persons) {
             vm.message = persons.id + ' - ' + persons.firstName;

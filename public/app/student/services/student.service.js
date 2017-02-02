@@ -6,12 +6,12 @@
         .factory('studentService', studentService);
 
 
-    studentService.$inject = ['$cookies','$q'];
+    studentService.$inject = ['$cookies','$q','$firebaseObject','$loaded'];
 
 
 
 
-    function studentService($cookies,$q) {
+    function studentService($cookies,$q,$firebaseObject,$loaded) {
 
         var student = function (s_id, s_name, s_school, s_phone, s_state) {
             this.s_id = s_id;
@@ -27,7 +27,6 @@
         var service = {
 
             studentInfo: studentInfo
-
 
         };
         return service;
@@ -45,6 +44,7 @@
             });
             return deferred.promise;
         };
+
 
 
 
