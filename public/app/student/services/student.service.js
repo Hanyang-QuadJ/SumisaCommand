@@ -6,12 +6,12 @@
         .factory('studentService', studentService);
 
 
-    studentService.$inject = ['$cookies','$q','$firebaseObject','$loaded'];
+    studentService.$inject = ['$cookies','$q'];
 
 
 
 
-    function studentService($cookies,$q,$firebaseObject,$loaded) {
+    function studentService($cookies,$q) {
 
         var student = function (s_id, s_name, s_school, s_phone, s_state) {
             this.s_id = s_id;

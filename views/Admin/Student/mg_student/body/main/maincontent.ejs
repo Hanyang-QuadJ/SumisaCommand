@@ -11,7 +11,7 @@
     </section>
 
     <!-- Main content -->
-    <section class="content">
+    <section class="content" ng-controller="adminStudentManageController as vm">
         <div class="row">
             <div class="col-md-6">
 
@@ -22,6 +22,7 @@
 
                     <div class="box-body">
                         <!-- Date -->
+                        <form ng-submit="vm.addStudents()">
                         <div class="form-group">
                             <label>등록 날짜:</label>
 
@@ -39,37 +40,37 @@
                         <label>학생 이름:</label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-file-text"></i></span>
-                            <input type="name" class="form-control" placeholder="이름을 입력하세요">
+                            <input type="name" ng-model = "vm.name" class="form-control" placeholder="이름을 입력하세요">
                         </div>
                         <br>
                         <label>학생 학년:</label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-bars"></i></span>
-                            <input type="email" class="form-control" placeholder="학년을 입력하세요">
+                            <input type="email" ng-model = "vm.grade" class="form-control" placeholder="학년을 입력하세요">
                         </div>
                         <br>
                         <label>학생 학교:</label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-book"></i></span>
-                            <input type="email" class="form-control" placeholder="학교를 입력하세요">
+                            <input type="email" ng-model="vm.school" class="form-control" placeholder="학교를 입력하세요">
                         </div>
                         <br>
                         <label>학부모 H.P:</label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-mobile-phone"></i></span>
-                            <input type="email" class="form-control" placeholder="번호를 입력하세요">
+                            <input type="email" ng-model = "vm.parent_phone" class="form-control" placeholder="번호를 입력하세요">
                         </div>
                         <br>
                         <label>학생 H.P:</label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-mobile-phone"></i></span>
-                            <input type="email" class="form-control" placeholder="번호를 입력하세요">
+                            <input type="email" ng-model = "vm.student_phone" class="form-control" placeholder="번호를 입력하세요">
                         </div>
 
                         <div class="box-footer text-center">
                             <button type="submit" class="btn btn-primary">등록</button>
                         </div>
-
+                        </form>
 
                     </div>
                     <!-- /.box-body -->

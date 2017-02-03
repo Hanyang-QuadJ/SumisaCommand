@@ -1,30 +1,24 @@
-'use strict';
 (function(){
-
+    'use strict';
     angular
         .module('app.admin')
         .controller('adminLectureManageController', adminLectureManageController);
 
     adminLectureManageController.$inject = [
-        '$resource',
         'DTOptionsBuilder',
         'DTColumnDefBuilder',
-        'adminLectureManageService',
-        '$firebaseArray'
+        'adminLectureManageService'
     ];
 
     function adminLectureManageController(
-        $resource,
         DTOptionsBuilder,
         DTColumnDefBuilder,
-        adminLectureManageService,
-        $firebaseArray
+        adminLectureManageService
     ) {
 
         var vm = this;
         adminLectureManageService.studentInfo().then(
             function(s) {
-                vm.students = s;
                 vm.persons = s;
             },
             function(err) {

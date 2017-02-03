@@ -1,4 +1,4 @@
 (function(){
     'use strict';
-    angular.module('app.login', ['ngCookies']);
+    angular.module('app.login', []);
 })();
