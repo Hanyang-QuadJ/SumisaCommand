@@ -35,7 +35,7 @@
 
         function studentInfo() {
             const studentRefObject = firebase.database().ref().child('student');
-            studentRefObject.orderByChild("s_id").equalTo($cookies.get('ID')).once("child_added", function(snapshot) {
+            studentRefObject.orderByChild("s_id").equalTo('2014038122').once("child_added", function(snapshot) {
                 s.s_name = snapshot.child('s_name').val();
                 s.s_id = snapshot.child('s_id').val();
                 s.s_phone = snapshot.child('s_phone').val();
