@@ -112,8 +112,8 @@ router.get('/admin/mg_lecture', function(req, res, next) {
 });
 
 /*Admin-Lecturer page rendering*/
-router.get('/admin/mg_lecturer', function(req, res, next) {
-    res.render('Admin/mg_lecturer/mg_lecturer');
+router.get('/admin/teacher', function(req, res, next) {
+    res.render('Admin/teacher/teacher');
 });
 
 /*Admin-Notice page rendering*/
@@ -132,16 +132,16 @@ router.get('/teacher', function(req, res, next) {
     res.redirect('teacher/notice');
 });
 router.get('/teacher/notice', function(req, res, next) {
-    res.render('Teacher/notice/notice',{ID:ID});
+    res.render('Teacher/notice/notice');
 });
 router.get('/teacher/lecturer', function(req, res, next) {
-    res.render('Teacher/lecturer/lecturer',{ID:ID});
+    res.render('Teacher/lecturer/lecturer');
 });
 router.get('/teacher/mylecture', function(req, res, next) {
-    res.render('Teacher/mylecture/mylecture',{ID:ID});
+    res.render('Teacher/mylecture/mylecture');
 });
 router.get('/teacher/data', function(req, res, next) {
-    res.render('Teacher/data/data',{ID:ID});
+    res.render('Teacher/data/data');
 });
 
 module.exports = router;
