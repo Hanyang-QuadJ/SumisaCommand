@@ -80,7 +80,7 @@ router.get('/student', function(req, res, next) {
     res.render('Student/student');
 });
 router.get('/parent', function(req, res, next) {
-    res.render('Parent/parent',{ID:ID});
+    res.render('Parent/parent');
 });
 router.get('/admin', function(req, res, next) {
     res.redirect('admin/mg_notice');
