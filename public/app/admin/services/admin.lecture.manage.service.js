@@ -20,7 +20,7 @@
         ////////////
 
         function studentInfo() {
-            var studentRefObject = firebase.database().ref().child('simpleClass');
+            var studentRefObject = firebase.database().ref().child('semester');
             var arr = $firebaseArray(studentRefObject);
             deferred.resolve(arr);
             return deferred.promise;
