@@ -1,3 +1,9 @@
+// title : admin-student 탭의 data table을 위한 컨트롤러
+/*todo List---------------------------
+    파이어 베이스와 연결만 해놓은 상태
+    아직 데이터 테이블도 안만들어져있고 여기서 할거 없음
+ */
+
 (function(){
     'use strict';
     angular
