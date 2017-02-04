@@ -64,7 +64,7 @@
                                                 <th class="text-center" style="width:8%">번호</th>
                                                 <th class="text-center" style="width: 55%">형태 이름</th>
                                                 <th class="text-center">등록 날짜</th>
-                                                <th class="text-center"style="width:10%">편집</th>
+                                                <th class="text-center"style="width:15%">편집</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -75,7 +75,8 @@
                                                     {{ person.lastName }}
                                                 </td>
                                                 <td class="text-center">
-                                                    <button type="button" ng-click="showCase.modifyPerson($index)" class="btn btn-warning"><i class="fa fa-edit"></i></button>
+                                                    <button type="button" data-toggle="modal" data-target="{{'#modal-'+$index}}" class = "btn btn-success"><i class="fa fa-search-plus"></i></button>
+                                                    <button type="button" ng-click="showCase.modifyPerson(person)" class="btn btn-warning"><i class="fa fa-edit"></i></button>
                                                     <button type="button" ng-click="showCase.removePerson(person)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
                                                 </td>
                                             </tr>
@@ -84,8 +85,29 @@
 
                                         <p class="text-danger">You clicked on: <strong>{{ showCase.message }}</strong></p>
 
-
                                     </form>
+                                    <div ng-repeat="person in showCase.persons">
+                                        <div ng-attr-id="{{ 'modal-' + $index }}" class="modal fade" role="dialog">
+                                            <div class="modal-dialog">
+
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        <h4 class="modal-title">{{person.firstName}}</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <h5>현종이형이 할일</h5>
+                                                        <p>여기 들어갈 테이블 구조 만들기</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
                             </div>
 
                         </div>
@@ -119,5 +141,6 @@
 
 
     </section>
+
     <!-- /.content -->
 </div>
