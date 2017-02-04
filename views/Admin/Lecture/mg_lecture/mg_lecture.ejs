@@ -11,40 +11,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <body class="hold-transition skin-blue sidebar-mini">
 
 <% include body/body.ejs%>
+<% include ../../../angularFooter/angularFooter.ejs%>
 <% include footer/footer.ejs %>
 
-<!--angularPart-->
-
-<script src="/javascripts/angular.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-cookies.js"></script>
-
-<script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
-<script src="https://cdn.firebase.com/libs/angularfire/2.2.0/angularfire.min.js"></script>
-<script>
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyAnf59-0cgsAcDmplvQKHcXYCmTySAv3GA",
-        authDomain: "sumisa-50c79.firebaseapp.com",
-        databaseURL: "https://sumisa-50c79.firebaseio.com",
-        storageBucket: "sumisa-50c79.appspot.com",
-        messagingSenderId: "692869677834"
-    };
-    firebase.initializeApp(config);
-</script>
-
-<script src="/app/app.module.js"></script>
-
-<script src="/app/student/student.module.js"></script>
-<script src="/app/student/controllers/student.controller.js"></script>
-<script src="/app/student/services/student.service.js"></script>
-
-<script src="/app/login/login.module.js"></script>
-<script src="/app/login/controllers/login.controller.js"></script>
-<script src="/app/login/services/login.service.js"></script>
-
-<script src="/app/admin/admin.module.js"></script>
-<script src="/app/admin/controllers/admin.lecture.manage.controller.js"></script>
-<script src="/app/admin/services/admin.lecture.manage.service.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.6.1/angular-resource.min.js"></script>
 </body>
 </html>

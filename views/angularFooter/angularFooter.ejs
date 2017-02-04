@@ -1,27 +1,13 @@
-<!DOCTYPE html>
-<html lang="ko" ng-app="sumisaApp">
+<!--angularPart-->
 
-<head>
+<!--dataTable-->
+<script src="/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="/plugins/datatables/jquery.dataTables.js"></script>
+<script src="/admin_mglecture/angular.min.js"></script>
+<script src="/admin_mglecture/angular-datatables.min.js"></script>
 
- <% include header.ejs %>
-
-</head>
-
-<body id="page-top">
-
-<% include nav.ejs %>
-
-<% include logo_and_loginwindow.ejs %>
-<% include about.ejs %>
-<% include branch.ejs %>
-<% include gallery.ejs %>
-<% include contact.ejs %>
-
-
-<% include footer.ejs %>
-<script src="/javascripts/angular.min.js"></script>
+<!--angularfire-->
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-cookies.js"></script>
-
 <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
 <script src="https://cdn.firebase.com/libs/angularfire/2.2.0/angularfire.min.js"></script>
 <script>
@@ -36,6 +22,8 @@
     firebase.initializeApp(config);
 </script>
 
+
+<!--angular App-->
 <script src="/app/app.module.js"></script>
 
 <script src="/app/student/student.module.js"></script>
@@ -53,6 +41,5 @@
 
 <script src = "/app/admin/controllers/admin.student.manage.controller.js"></script>
 <script src="/app/admin/services/admin.student.manage.service.js"></script>
-</body>
 
-</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.6.1/angular-resource.min.js"></script>

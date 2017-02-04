@@ -3,7 +3,7 @@
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
-<html lang="ko">
+<html lang="ko" ng-app="sumisaApp">
 <head>
     <% include header/header.ejs %>
 </head>
@@ -11,8 +11,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <body class="hold-transition skin-blue sidebar-mini">
 
 <% include body/body.ejs%>
+<% include ../../../angularFooter/angularFooter.ejs%>
 <% include footer/footer.ejs %>
-
 
 </body>
 </html>
