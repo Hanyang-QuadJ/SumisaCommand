@@ -13,17 +13,17 @@
     //admin모듈에 컨트롤러 생성
     angular
         .module('app.admin')
-        .controller('adminLectureManageController', adminLectureManageController);
+        .controller('adminSemesterManageController', adminSemesterManageController);
     //'DTOptionsBuilder' : 테이블의 속성 설정하기 위한 datatable library method
     //'DTColumnDefBuilder' : 테이블의 컬럼을 추가해주는 datatable library method
     //'adminLectureManageService' : 파이어 베이스와 연동을 위한 서비스
-    adminLectureManageController.$inject = [
+    adminSemesterManageController.$inject = [
         'DTOptionsBuilder',
         'DTColumnDefBuilder',
         'adminLectureManageService'
     ];
 
-    function adminLectureManageController(
+    function adminSemesterManageController(
         DTOptionsBuilder,
         DTColumnDefBuilder,
         adminLectureManageService
@@ -82,8 +82,6 @@
         function someClickHandler(persons) {
             vm.message = persons.id + ' - ' + persons.firstName;
         }
-        //?? 이건뭐임
-
 
 
     }
