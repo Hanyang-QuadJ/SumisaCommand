@@ -26,14 +26,14 @@
 
                         <div class="box-body">
                             <div>
-                                <div ng-controller="adminLectureManageController as showCase">
+                                <div ng-controller="adminLectureManageController as vm">
 
-                                    <form ng-submit="showCase.addPerson()">
+                                    <form ng-submit="vm.addSemester()">
 
                                         <label>등록 번호:</label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-file-text"></i></span>
-                                            <input type="number" class="form-control" name="id" ng-model="showCase.person2Add.id" placeholder="예)1">
+                                            <input type="number" class="form-control" name="id" ng-model="vm.semesterToAdd.id" placeholder="예)1">
                                         </div>
                                         <br>
 
@@ -42,7 +42,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </div>
-                                            <input type="text" class="form-control"  name="firstName" ng-model="showCase.person2Add.firstName" placeholder="예) 단과 2017년 겨울특강">
+                                            <input type="text" class="form-control"  name="firstName" ng-model="vm.semesterToAdd.name" placeholder="예) 단과 2017년 겨울특강">
                                         </div>
                                         <br>
                                         <label>등록 날짜:</label>
@@ -50,7 +50,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </div>
-                                            <input type="text" class="form-control" name="lastName" ng-model="showCase.person2Add.lastName" placeholder="예) 08/12/2016" data-inputmask='"mask": "99/99/9999"' data-mask>
+                                            <input type="text" class="form-control" name="lastName" ng-model="vm.semesterToAdd.date" placeholder="예) 08/12/2016" data-inputmask='"mask": "99/99/9999"' data-mask>
                                         </div>
                                         <br>
 
@@ -58,7 +58,7 @@
                                             <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i></button>
                                         </div>
 
-                                        <table datatable="ng" dt-options="showCase.dtOptions" dt-column-defs="showCase.dtColumnDefs" class="row-border hover">
+                                        <table datatable="ng" dt-options="vm.dtOptions" dt-column-defs="vm.dtColumnDefs" class="row-border hover">
                                             <thead>
                                             <tr>
                                                 <th class="text-center" style="width:8%">번호</th>
@@ -68,16 +68,14 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr ng-repeat="person in showCase.persons">
-                                                <td class="text-center">{{ person.id }}</td>
-                                                <td class="text-center">{{ person.firstName }}</td>
-                                                <td class="text-center">
-                                                    {{ person.lastName }}
-                                                </td>
+                                            <tr ng-repeat="semester in vm.semesters">
+                                                <td class="text-center">{{ semester.id }}</td>
+                                                <td class="text-center">{{ semester.name }}</td>
+                                                <td class="text-center">{{ semester.date }}</td>
                                                 <td class="text-center">
                                                     <button type="button" data-toggle="modal" data-target="{{'#modal-'+$index}}" class = "btn btn-primary"><i class="fa fa-search-plus"></i></button>
-                                                    <button type="button" ng-click="showCase.modifyPerson(person)" class="btn btn-warning"><i class="fa fa-edit"></i></button>
-                                                    <button type="button" ng-click="showCase.removePerson(person)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                                    <button type="button" ng-click="vm.modifySemester(semester)" class="btn btn-warning"><i class="fa fa-edit"></i></button>
+                                                    <button type="button" ng-click="vm.removeSemester(semester)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
                                                 </td>
                                             </tr>
                                             </tbody>
@@ -87,7 +85,7 @@
 
 
                                     </form>
-                                    <div ng-repeat="person in showCase.persons">
+                                    <div ng-repeat="semester in vm.semesters">
                                         <div ng-attr-id="{{ 'modal-' + $index }}" class="modal fade" role="dialog">
 
 
@@ -101,7 +99,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="modal-header">
-                                                        <h4 class="modal-title">{{person.firstName}}</h4>
+                                                        <h4 class="modal-title">{{semester.firstName}}</h4>
                                                     </div>
                                                     <div class="modal-body">
                                                         <div class="row">
