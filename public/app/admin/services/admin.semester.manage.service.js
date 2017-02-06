@@ -12,7 +12,8 @@
         var deferred = $q.defer();
         var service = {
 
-            getSemesterArray: getSemesterArray
+            getSemesterArray: getSemesterArray,
+
 
         };
         return service;
@@ -25,6 +26,9 @@
             deferred.resolve(arr);
             return deferred.promise;
         };
+
+
+
 
 
     }
