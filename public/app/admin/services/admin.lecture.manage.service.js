@@ -12,16 +12,16 @@
         var deferred = $q.defer();
         var service = {
 
-            studentInfo: studentInfo
+            getSemesterArray: getSemesterArray
 
         };
         return service;
 
         ////////////
 
-        function studentInfo() {
-            var studentRefObject = firebase.database().ref().child('semester');
-            var arr = $firebaseArray(studentRefObject);
+        function getSemesterArray() {
+            var refObject = firebase.database().ref().child('semester');
+            var arr = $firebaseArray(refObject);
             deferred.resolve(arr);
             return deferred.promise;
         };
