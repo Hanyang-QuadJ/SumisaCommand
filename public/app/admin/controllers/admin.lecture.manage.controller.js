@@ -80,7 +80,7 @@
             vm.persons.splice(index, 1, angular.copy(vm.person2Add));
             vm.person2Add = _buildPerson2Add(vm.person2Add.id + 1);
         }
-        //데이터 삭제(firebaseArray를 이용해 firebase와 웹화면에 동시에 추가됨
+        //데이터 삭제(firebaseArray를 이용해 firebase와 웹화면에 동시에 삭제됨
         function removePerson(person) {
             vm.persons.$remove(person);
             // vm.persons.splice(index, 1);
