@@ -19,40 +19,33 @@
     //'adminLectureManageService' : 파이어 베이스와 연동을 위한 서비스
     adminSemesterManageController.$inject = [
         'DTOptionsBuilder',
-        'DTColumnDefBuilder',
-        'adminLectureManageService'
+        'DTColumnBuilder',
+        'adminSemesterManageService'
     ];
 
     function adminSemesterManageController(
         DTOptionsBuilder,
-        DTColumnDefBuilder,
-        adminLectureManageService
+        DTColumnBuilder,
+        adminSemesterManageService
     ) {
 
         var vm = this;
 
-        //firebase의 semester 데이터를 firebaseArray형태로 모두 읽어오는 service method
-        adminLectureManageService.getSemesterArray().then(
+        // firebase의 semester 데이터를 firebaseArray형태로 모두 읽어오는 service method
+        adminSemesterManageService.getSemesterArray().then(
             function(s) {
                 vm.semesters = s;
             },
             function(err) {
                 // handle error
             }
-        )
-        //data table 속성 부과
-        vm.dtOptions = DTOptionsBuilder.newOptions()
-            .withOption("order", [[1, "asc"]])
-            .withPaginationType('full_numbers');
+        );
+
         vm.message ='';
 
-        //data table에 4개의 컬럼 생성
-        vm.dtColumnDefs = [
-            DTColumnDefBuilder.newColumnDef(0),
-            DTColumnDefBuilder.newColumnDef(1),
-            DTColumnDefBuilder.newColumnDef(2),
-            DTColumnDefBuilder.newColumnDef(3).notSortable()
-        ];
+
+
+
 
         //이 컨트롤러에서 사용할 메소드들 정의
         vm.someClickHandler = someClickHandler;
