@@ -3,17 +3,16 @@
 
     angular
         .module('app.admin')
-        .factory('adminLectureManageService', adminLectureManageService);
+        .factory('adminSemesterManageService', adminSemesterManageService);
 
-    adminLectureManageService.$inject = ['$q','$firebaseArray'];
+    adminSemesterManageService.$inject = ['$q','$firebaseArray','$firebaseObject'];
 
-    function adminLectureManageService($q,$firebaseArray) {
+    function adminSemesterManageService($q,$firebaseArray,$firebaseObject) {
 
         var deferred = $q.defer();
         var service = {
 
-            getSemesterArray: getSemesterArray,
-
+            getSemesterArray: getSemesterArray
 
         };
         return service;
@@ -21,14 +20,11 @@
         ////////////
 
         function getSemesterArray() {
-            var refObject = firebase.database().ref().child('semester');
-            var arr = $firebaseArray(refObject);
-            deferred.resolve(arr);
+            var semesterRefObject = firebase.database().ref().child('semester');
+            var semesterArr = $firebaseArray(semesterRefObject);
+            deferred.resolve(semesterArr);
             return deferred.promise;
         };
-
-
-
 
 
     }
