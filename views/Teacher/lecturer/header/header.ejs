@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>수미사 교사 페이지</title>
+<title>수미사 교사 페이지-todoMVC</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <!-- Bootstrap 3.3.6 -->
@@ -18,54 +18,56 @@
 <link rel="stylesheet" href="/dist/css/skins/skin-blue.css">
 <!--<link rel="stylesheet" href="/stylesheets/todoapp.css">-->
 
+<link rel="stylesheet" href="stylesheets/todoMVC/todomvc-common/base.css">
+<link rel="stylesheet" href="stylesheets/todoMVC/todomvc-app-css/index.css">
 <style>[ng-cloak] { display: none; }</style>
 
-<style type="text/css">
-    .link{
-        background: #222;
-        background: -moz-linear-gradient(#252525, #0A0A0A) ;
-        background: -o-linear-gradient(#252525, #0A0A0A);
-        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#252525), to(#0A0A0A));
-        background: -webkit-linear-gradient(#252525, #0A0A0A);
-        -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
-        -moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
-        box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
-        color:#fff;
-        padding: 8px 10px;
-        text-decoration: none;
-        font-weight: normal;
-        font-size: 18px;
-        font-family: Arial,Verdana;
-        word-spacing: 1px;
-        border-radius: 4px;
-        -webkit-border-radius: 4px;
-        -moz-border-radius: 4px;
-        -o-border-radius: 4px;
-        -ms-border-radius: 4px;
-    }
-    .link:hover{
-        text-decoration: none;
-        color: #fff;
-        background:#62ABD8 !important;
-        background: -moz-linear-gradient(#80BADE, #62ABD8) ;
-        background: -o-linear-gradient(#80BADE, #62ABD8);
-        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#80BADE), to(#62ABD8));
-        background: -webkit-linear-gradient(#80BADE, #62ABD8);
-        -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
-        -moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
-        box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
-    }
-    .link:active{
-        background:#62ABD8 !important;
-        background: -moz-linear-gradient(#80BADE, #62ABD8) ;
-        background: -o-linear-gradient(#80BADE, #62ABD8);
-        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#80BADE), to(#62ABD8));
-        background: -webkit-linear-gradient(#80BADE, #62ABD8);
-        -webkit-box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
-        -moz-box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
-        box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;
-    }
-</style>
+<!--<style type="text/css">-->
+    <!--.link{-->
+        <!--background: #222;-->
+        <!--background: -moz-linear-gradient(#252525, #0A0A0A) ;-->
+        <!--background: -o-linear-gradient(#252525, #0A0A0A);-->
+        <!--background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#252525), to(#0A0A0A));-->
+        <!--background: -webkit-linear-gradient(#252525, #0A0A0A);-->
+        <!-- -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;-->
+        <!-- -moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;-->
+        <!--box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;-->
+        <!--color:#fff;-->
+        <!--padding: 8px 10px;-->
+        <!--text-decoration: none;-->
+        <!--font-weight: normal;-->
+        <!--font-size: 18px;-->
+        <!--font-family: Arial,Verdana;-->
+        <!--word-spacing: 1px;-->
+        <!--border-radius: 4px;-->
+        <!-- -webkit-border-radius: 4px;-->
+        <!-- -moz-border-radius: 4px;-->
+        <!-- -o-border-radius: 4px;-->
+        <!-- -ms-border-radius: 4px;-->
+    <!--}-->
+    <!--.link:hover{-->
+        <!--text-decoration: none;-->
+        <!--color: #fff;-->
+        <!--background:#62ABD8 !important;-->
+        <!--background: -moz-linear-gradient(#80BADE, #62ABD8) ;-->
+        <!--background: -o-linear-gradient(#80BADE, #62ABD8);-->
+        <!--background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#80BADE), to(#62ABD8));-->
+        <!--background: -webkit-linear-gradient(#80BADE, #62ABD8);-->
+        <!-- -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;-->
+        <!-- -moz-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;-->
+        <!--box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;-->
+    <!--}-->
+    <!--.link:active{-->
+        <!--background:#62ABD8 !important;-->
+        <!--background: -moz-linear-gradient(#80BADE, #62ABD8) ;-->
+        <!--background: -o-linear-gradient(#80BADE, #62ABD8);-->
+        <!--background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#80BADE), to(#62ABD8));-->
+        <!--background: -webkit-linear-gradient(#80BADE, #62ABD8);-->
+        <!-- -webkit-box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;-->
+        <!-- -moz-box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;-->
+        <!--box-shadow: inset rgba(0, 0, 0, 0.4) 0px 1px 2px;-->
+    <!--}-->
+<!--</style>-->
 
 
 
@@ -77,11 +79,6 @@
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-
-<!--todomvc-->
-<link rel="stylesheet" href="node_modules/todomvc-common/base.css">
-<link rel="stylesheet" href="node_modules/todomvc-app-css/index.css">
-<style>[ng-cloak] { display: none; }</style>
 
 <![endif]-->
 <!--
@@ -104,7 +101,3 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-
-<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
-<script src="https://cdn.firebase.com/libs/angularfire/2.2.0/angularfire.min.js"></script>

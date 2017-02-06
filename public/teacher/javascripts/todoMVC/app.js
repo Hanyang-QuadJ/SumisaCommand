@@ -7,9 +7,7 @@
  *
  * @type {angular.Module}
  */
-var todomvc = angular.module('todomvc', ['firebase']);
-
-alert('hello');
+var todomvc = angular.module('app.todoapp', ['firebase']);
 
 todomvc.filter('todoFilter', function ($location) {
 	return function (input) {
