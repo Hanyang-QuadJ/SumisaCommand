@@ -1611,12 +1611,11 @@ a:focus {
 }
 .box.box-solid.box-default > .box-header {
   color: white;
-  background: #d2d6de;
   background-color: #3e3e3e;
 }
 .box.box-solid.box-default > .box-header a,
 .box.box-solid.box-default > .box-header .btn {
-  color: #3e3e3e;
+  color: #ffffff;
 }
 .box.box-solid.box-primary {
   border: 1px solid #3c8dbc;
@@ -4945,7 +4944,7 @@ table.text-center th {
   border: none;
   min-height: 100%;
   padding: 100px 0;
-  text-align: center;
+
 }
 .modal-content h2 {
   margin: 0;
