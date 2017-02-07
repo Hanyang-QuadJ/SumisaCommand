@@ -91,24 +91,24 @@ router.get('/#/login',function(req, res, next){
 
 /*Admin-Student page rendering*/
 router.get('/admin/mg_student', function(req, res, next) {
-    res.render('Admin/Student/mg_student/mg_student');
+    res.render('Admin/student/mg_student/mg_student');
 });
 router.get('/admin/student_info', function(req, res, next) {
-    res.render('Admin/Student/student_info/student_info');
+    res.render('Admin/student/student_info/student_info');
 });
 router.get('/admin/student_status', function(req, res, next) {
-    res.render('Admin/Student/student_status/student_status');
+    res.render('Admin/student/student_status/student_status');
 });
 
 /*Admin-Lecture page rendering*/
 router.get('/admin/lecture_status', function(req, res, next) {
-    res.render('Admin/Lecture/lecture_status/lecture_status');
+    res.render('Admin/lecture/lecture_status/lecture_status');
 });
 router.get('/admin/lecture_info', function(req, res, next) {
-    res.render('Admin/Lecture/lecture_info/lecture_info');
+    res.render('Admin/lecture/lecture_info/lecture_info');
 });
 router.get('/admin/mg_lecture', function(req, res, next) {
-    res.render('Admin/Lecture/mg_lecture/mg_lecture');
+    res.render('Admin/lecture/mg_lecture/mg_lecture');
 });
 
 /*Admin-Lecturer page rendering*/
