@@ -2,18 +2,18 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-             강좌
+            강좌
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
             <li class="active">Here</li>
         </ol>
     </section>
-
     <!-- Main content -->
     <section class="content" >
         <div class="row">
-            <div class="col-md-12 connectedSortable">
+            <div ng-controller="adminSemesterManageController as vm">
+                <div class="col-md-12 connectedSortable">
                     <div class="box box-primary box-solid">
                         <div class="box-header with-border">
                             <h3 class="box-title">강좌 형태</h3>
@@ -22,225 +22,189 @@
                                 </button>
                             </div>
                         </div>
-
-
                         <div class="box-body">
-                            <div>
-                                <div ng-controller="adminSemesterManageController as vm">
-
-                                    <form ng-submit="vm.addSemester()">
-
-                                        <label>등록 번호:</label>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-file-text"></i></span>
-                                            <input type="number" class="form-control" name="id" ng-model="vm.semesterToAdd.id" placeholder="예)1">
-                                        </div>
-                                        <br>
-
-                                        <label>형태 이름:</label>
-                                        <div class="input-group">
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </div>
-                                            <input type="text" class="form-control"  name="firstName" ng-model="vm.semesterToAdd.name" placeholder="예) 단과 2017년 겨울특강">
-                                        </div>
-                                        <br>
-                                        <label>등록 날짜:</label>
-                                        <div class="input-group">
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </div>
-                                            <input type="text" class="form-control" name="lastName" ng-model="vm.semesterToAdd.date" placeholder="예) 08/12/2016" data-inputmask='"mask": "99/99/9999"' data-mask>
-                                        </div>
-                                        <br>
-
-                                        <div class="text-center add">
-                                            <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i></button>
-                                        </div>
-
-                                        <table id = "semester" datatable="ng" dt-columns = "vm.dtColumns" class="row-border hover">
-                                            <thead>
-                                            <tr>
-                                                <th class="text-center" style="width:8%">번호</th>
-                                                <th class="text-center" style="width: 55%">형태 이름</th>
-                                                <th class="text-center">등록 날짜</th>
-                                                <th class="text-center"style="width:15%">편집</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr ng-repeat="semester in vm.semesters">
-                                                <td class="text-center">{{ semester.id }}</td>
-                                                <td class="text-center">{{ semester.name }}</td>
-                                                <td class="text-center">{{ semester.date }}</td>
-                                                <td class="text-center">
-                                                    <button type="button" data-toggle="modal" data-target="{{'#modal-'+$index}}" class = "btn btn-primary"><i class="fa fa-search-plus"></i></button>
-                                                    <button type="button" ng-click="vm.modifySemester(semester)" class="btn btn-warning"><i class="fa fa-edit"></i></button>
-                                                    <button type="button" ng-click="vm.removeSemester(semester)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-
-
-
-
-                                    </form>
-                                    <div ng-repeat="semester in vm.semesters">
-                                        <div ng-attr-id="{{ 'modal-' + $index }}" class="modal fade" role="dialog">
-
-
-                                                <!-- Modal content-->
-
-                                                <div class="modal-content">
-                                                    <div class="close-modal" data-dismiss="modal">
-                                                        <div class="lr">
-                                                            <div class="rl">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-header">
-                                                        <h4 class="modal-title">{{semester.name}}</h4>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <div class="box box-default box-solid">
-                                                                    <div class="box-header with-border">
-                                                                        <h3 class="box-title">강좌</h3>
-                                                                        <div class="box-tools pull-right">
-                                                                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div ng-controller="adminLectureManageController as vm2" class="box-body">
-                                                                        <form>
-
-                                                                            <label>등록 번호:</label>
-                                                                            <div class="input-group">
-                                                                                <span class="input-group-addon"><i class="fa fa-file-text"></i></span>
-                                                                                <input type="number" class="form-control" name="id" ng-model="vm2.lectureToAdd.id" placeholder="예)1">
-                                                                            </div>
-                                                                            <br>
-
-                                                                            <label>강좌 이름:</label>
-                                                                            <div class="input-group">
-                                                                                <div class="input-group-addon">
-                                                                                    <i class="fa fa-calendar"></i>
-                                                                                </div>
-                                                                                <input type="text" class="form-control"  name="firstName" ng-model="vm2.lectureToAdd.name" placeholder="예) 단과 2017년 겨울특강">
-                                                                            </div>
-                                                                            <br>
-                                                                            <label>최대 인원:</label>
-                                                                            <div class="input-group">
-                                                                                <div class="input-group-addon">
-                                                                                    <i class="fa fa-calendar"></i>
-                                                                                </div>
-                                                                                <input type="text" class="form-control" name="lastName" ng-model="vm2.lectureToAdd.maximum">
-                                                                            </div>
-                                                                            <br>
-
-                                                                            <label>수강료:</label>
-                                                                            <div class="input-group">
-                                                                                <div class="input-group-addon">
-                                                                                    <i class="fa fa-calendar"></i>
-                                                                                </div>
-                                                                                <input type="text" class="form-control" name="lastName" ng-model="vm2.lectureToAdd.fee">
-                                                                            </div>
-                                                                            <br>
-
-                                                                            <label>학기ID:</label>
-                                                                            <div class="input-group">
-                                                                                <div class="input-group-addon">
-                                                                                    <i class="fa fa-calendar"></i>
-                                                                                </div>
-                                                                                <input type="text" class="form-control" name="lastName" ng-model="vm2.lectureToAdd.semester">
-                                                                            </div>
-                                                                            <br>
-                                                                            <div class="text-center add">
-                                                                                <button ng-click="vm2.addLecture()" type="submit" class="btn btn-success"><i class="fa fa-plus"></i></button>
-                                                                            </div>
-
-                                                                            <table id = "lecture" datatable="ng" class="row-border hover">
-                                                                                <thead>
-                                                                                <tr>
-                                                                                    <th class="text-center" style="width:8%">번호</th>
-                                                                                    <th class="text-center" style="width: 50%">강좌 이름</th>
-                                                                                    <th class="text-center">최대 인원</th>
-                                                                                    <th class="text-center"style="width:15%">수강료</th>
-                                                                                    <th class="text-center"style="width:15%">편집</th>
-                                                                                </tr>
-                                                                                </thead>
-                                                                                <tbody>
-                                                                                <tr ng-repeat="lecture in vm2.lectures" ng-if="semester.id == lecture.semester">
-
-                                                                                    <td class="text-center" >{{ lecture.id }}</td>
-                                                                                    <td class="text-center" >{{ lecture.name }}</td>
-                                                                                    <td class="text-center" >{{ lecture.maximum }}</td>
-                                                                                    <td class="text-center">{{ lecture.fee }}</td>
-                                                                                    <td class="text-center" >
-                                                                                        <button type="button" ng-click="vm2.modifyLecture(lecture)" class="btn btn-warning"><i class="fa fa-edit"></i></button>
-                                                                                        <button type="button" ng-click="vm2.removeLecture(lecture)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                </tbody>
-                                                                            </table>
-
-
-
-
-                                                                        </form>
-                                                                    </div>
-
-
-                                                                </div>
-
-                                                            </div>
-
-                                                        </div>
-
-                                                    </div>
-
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-
-
-                                                </div>
-
-                                            </div>
-
+                            <form ng-submit="vm.addSemester()">
+                                <label>등록 번호:</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-file-text"></i></span>
+                                    <input type="number" class="form-control" name="id" ng-model="vm.semesterToAdd.id" placeholder="예)1">
+                                </div>
+                                <br>
+                                <label>형태 이름:</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
                                     </div>
-                            </div>
-
+                                    <input type="text" class="form-control"  name="firstName" ng-model="vm.semesterToAdd.name" placeholder="예) 단과 2017년 겨울특강">
+                                </div>
+                                <br>
+                                <label>등록 날짜:</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" class="form-control" name="lastName" ng-model="vm.semesterToAdd.date" placeholder="예) 08/12/2016" data-inputmask='"mask": "99/99/9999"' data-mask>
+                                </div>
+                                <br>
+                                <div class="text-center add">
+                                    <button type="submit" class="btn btn-primary">등록</button>
+                                </div>
+                            </form>
                         </div>
-            </div>
-
-
-
+                    </div>
                     <!-- /.box-body -->
                 </div>
-                <div class="box box-danger">
-                    <div class="box-header">
-                        <h3 class="box-title">학생 퇴원</h3>
-                    </div>
-                    <div class="box-body">
-                        <div class="input-group">
-                            <div class="input-group-btn">
-                                <button type="button" class="btn btn-danger">퇴원</button>
+                <div class="col-md-12">
+                    <div class="box box-default">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">강좌 형태 목록</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                </button>
                             </div>
-                            <!-- /btn-group -->
-                            <input type="text" class="form-control" placeholder="퇴원한 학생을 입력하세요">
+                        </div>
+                        <div class="box-body">
+                            <table id = "semester" datatable="ng" dt-columns = "vm.dtColumns" class="row-border hover">
+                                <thead>
+                                <tr>
+                                    <th class="text-center" style="width:8%">번호</th>
+                                    <th class="text-center" style="width: 55%">형태 이름</th>
+                                    <th class="text-center">등록 날짜</th>
+                                    <th class="text-center"style="width:15%">편집</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="semester in vm.semesters">
+                                    <td class="text-center">{{ semester.id }}</td>
+                                    <td class="text-center">{{ semester.name }}</td>
+                                    <td class="text-center">{{ semester.date }}</td>
+                                    <td class="text-center">
+                                        <button type="button" data-toggle="modal" data-target="{{'#modal-'+$index}}" class = "btn btn-success"><i class="fa fa-search-plus"></i></button>
+                                        <button type="button" ng-click="vm.modifySemester(semester)" class="btn btn-warning"><i class="fa fa-edit"></i></button>
+                                        <button type="button" ng-click="vm.removeSemester(semester)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+
+                            <div ng-repeat="semester in vm.semesters">
+                                <div ng-attr-id="{{ 'modal-' + $index }}" class="modal fade" role="dialog">
+
+
+
+
+
+
+                                    <!-- Modal content (강좌 관리 모달)-->
+                                    <div class="modal-content">
+                                        <div class="close-modal" data-dismiss="modal">
+                                            <div class="lr">
+                                                <div class="rl">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">{{semester.name}}</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="box box-default box-solid">
+                                                        <div class="box-header with-border">
+                                                            <h3 class="box-title">강좌</h3>
+                                                            <div class="box-tools pull-right">
+                                                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <div ng-controller="adminLectureManageController as vm2" class="box-body">
+                                                            <form>
+                                                                <label>등록 번호:</label>
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><i class="fa fa-file-text"></i></span>
+                                                                    <input type="number" class="form-control" name="id" ng-model="vm2.lectureToAdd.id" placeholder="예)1">
+                                                                </div>
+                                                                <br>
+                                                                <label>강좌 이름:</label>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-addon">
+                                                                        <i class="fa fa-calendar"></i>
+                                                                    </div>
+                                                                    <input type="text" class="form-control"  name="firstName" ng-model="vm2.lectureToAdd.name" placeholder="예) 단과 2017년 겨울특강">
+                                                                </div>
+                                                                <br>
+                                                                <label>최대 인원:</label>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-addon">
+                                                                        <i class="fa fa-calendar"></i>
+                                                                    </div>
+                                                                    <input type="text" class="form-control" name="lastName" ng-model="vm2.lectureToAdd.maximum">
+                                                                </div>
+                                                                <br>
+                                                                <label>수강료:</label>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-addon">
+                                                                        <i class="fa fa-calendar"></i>
+                                                                    </div>
+                                                                    <input type="text" class="form-control" name="lastName" ng-model="vm2.lectureToAdd.fee">
+                                                                </div>
+                                                                <br>
+                                                                <label>학기ID:</label>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-addon">
+                                                                        <i class="fa fa-calendar"></i>
+                                                                    </div>
+                                                                    <input type="text" class="form-control" name="lastName" ng-model="vm2.lectureToAdd.semester">
+                                                                </div>
+                                                                <br>
+                                                                <div class="text-center add">
+                                                                    <button ng-click="vm2.addLecture()" type="submit" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                                                                </div>
+                                                                <table id = "lecture" datatable="ng" class="row-border hover">
+                                                                    <thead>
+                                                                    <tr>
+                                                                        <th class="text-center" style="width:8%">번호</th>
+                                                                        <th class="text-center" style="width: 50%">강좌 이름</th>
+                                                                        <th class="text-center">최대 인원</th>
+                                                                        <th class="text-center"style="width:15%">수강료</th>
+                                                                        <th class="text-center"style="width:15%">편집</th>
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    <tr ng-repeat="lecture in vm2.lectures" ng-if="semester.id == lecture.semester">
+                                                                        <td class="text-center" >{{ lecture.id }}</td>
+                                                                        <td class="text-center" >{{ lecture.name }}</td>
+                                                                        <td class="text-center" >{{ lecture.maximum }}</td>
+                                                                        <td class="text-center">{{ lecture.fee }}</td>
+                                                                        <td class="text-center" >
+                                                                            <button type="button" ng-click="vm2.modifyLecture(lecture)" class="btn btn-warning"><i class="fa fa-edit"></i></button>
+                                                                            <button type="button" ng-click="vm2.removeLecture(lecture)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                                                        </td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+                                    </div>
+
+                                    <!--Modal Finish 모달 끝 -->
+
+
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <!-- /.box-body -->
                 </div>
                 <!-- /.box -->
             </div>
         </div>
-
-                <!-- /.box -->
-
-
-
+        <!-- /.box -->
     </section>
-
     <!-- /.content -->
 </div>
