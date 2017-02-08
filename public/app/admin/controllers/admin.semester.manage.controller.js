@@ -56,11 +56,12 @@
         vm.semesterToAdd = {
                 id: '',
                 name: '',
-                date: '',
+                date: ''
         }
 
         //데이터 추가(firebaseArray를 이용해 firebase와 웹화면에 동시에 추가됨
         function addSemester() {
+            alert(vm.semesterToAdd.date);
             vm.semesters.$add(angular.copy(vm.semesterToAdd));
         }
         //데이터 수정 (미완성)
