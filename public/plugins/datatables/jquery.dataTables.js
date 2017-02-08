@@ -11120,7 +11120,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sEmptyTable": "No data available in table",
+			"sEmptyTable": "항목이 추가 되지 않았습니다.",
 	
 	
 			/**
