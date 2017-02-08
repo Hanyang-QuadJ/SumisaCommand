@@ -1,0 +1,53 @@
+(function(){
+    'use strict';
+    angular
+        .module('app.admin')
+        .controller('adminLeftBarController', adminLeftBarController);
+    adminLeftBarController.$inject = [
+        '$window'
+    ];
+    function adminLeftBarController($window){
+        var vm = this;
+        vm.getClassLi = getClassLi;
+        vm.getClassTree = getClassTree;
+
+        function getClassTree(url){
+            if(url ==='teacher'){
+                if($window.location.href === "http://localhost:3000/admin/teacher_status"){
+                    return 'active';
+                }
+                else if($window.location.href === "http://localhost:3000/admin/mg_teacher"){
+                    return 'active';
+                }
+                else return '';
+            }
+            else if(url ==='student'){
+                if($window.location.href === "http://localhost:3000/admin/student_status"){
+                    return 'active';
+                }
+                else if($window.location.href === "http://localhost:3000/admin/student_info"){
+                    return 'active';
+                }
+                else if($window.location.href === "http://localhost:3000/admin/mg_student"){
+                    return 'active';
+                }
+                else return '';
+            }
+            else if(url === 'lecture'){
+                if($window.location.href === "http://localhost:3000/admin/lecture_status"){
+                    return 'active';
+                }
+                else if($window.location.href === "http://localhost:3000/admin/lecture_info"){
+                    return 'active';
+                }
+                else if($window.location.href === "http://localhost:3000/admin/mg_lecture"){
+                    return 'active';
+                }
+                else return '';
+            }
+        }
+        function getClassLi(url) {
+            return ((''+$window.location.href) === url) ? 'active' : '';
+        }
+    }
+})();
