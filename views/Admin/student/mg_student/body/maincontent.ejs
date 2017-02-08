@@ -34,17 +34,17 @@
                             </div>
                         </div>
                     </div>
-                    <form ng-submit="vm.addStudents()">
+                    <form ng-submit="vm.addStudent()">
                         <div class="box-body">
                             <div class="col-md-6">
                                 <!-- Date -->
                                 <div class="form-group">
-                                    <label>등록 날짜:</label>
+                                    <label>ID:</label>
                                     <div class="input-group date">
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input type="text" class="form-control pull-right" id="datepicker" placeholder="여기를 클릭하세요">
+                                        <input type="text" ng-model = "vm.studentToAdd.id" class="form-control pull-right" id="datepicker" placeholder="여기를 클릭하세요">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -52,13 +52,13 @@
                                 <label>학생 이름:</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-file-text"></i></span>
-                                    <input type="text" ng-model = "vm.name" class="form-control" placeholder="이름을 입력하세요">
+                                    <input type="text" ng-model = "vm.studentToAdd.name" class="form-control" placeholder="이름을 입력하세요">
                                 </div>
                                 <br>
                                 <label>학생 학년:</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-bars"></i></span>
-                                    <input type="text" ng-model = "vm.grade" class="form-control" placeholder="학년을 입력하세요">
+                                    <input type="text" ng-model = "vm.studentToAdd.year" class="form-control" placeholder="학년을 입력하세요">
                                 </div>
                                 <br>
                             </div>
@@ -66,19 +66,19 @@
                                 <label>학생 학교:</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-book"></i></span>
-                                    <input type="text" ng-model="vm.school" class="form-control" placeholder="학교를 입력하세요">
+                                    <input type="text" ng-model="vm.studentToAdd.school" class="form-control" placeholder="학교를 입력하세요">
                                 </div>
                                 <br>
                                 <label>학부모 H.P:</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-mobile-phone"></i></span>
-                                    <input type="text" ng-model = "vm.parent_phone" class="form-control" placeholder="번호를 입력하세요" >
+                                    <input type="text" class="form-control" placeholder="번호를 입력하세요" >
                                 </div>
                                 <br>
                                 <label>학생 H.P:</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-mobile-phone"></i></span>
-                                    <input type="text" ng-model = "vm.student_phone" class="form-control" placeholder="번호를 입력하세요">
+                                    <input type="text" class="form-control" placeholder="번호를 입력하세요">
                                 </div>
                             </div>
                             <!-- /.box-body -->
@@ -110,8 +110,29 @@
                         </div>
                     </div>
                     <div class="box-body">
-                        <p>Table</p>
-
+                        <table id = "stud" datatable="ng" class="row-border hover">
+                            <thead>
+                            <tr>
+                                <th class="text-center">ID</th>
+                                <th class="text-center">학생 이름</th>
+                                <th class="text-center">학교</th>
+                                <th class="text-center">학년</th>
+                                <th class="text-center">편집</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="student in vm.students">
+                                <td class="text-center" >{{ student.id }}</td>
+                                <td class="text-center" >{{ student.name }}</td>
+                                <td class="text-center" >{{ student.school }}</td>
+                                <td class="text-center" >{{ student.year }}</td>
+                                <td class="text-center">
+                                    <button type="button" ng-click="vm.modifyStudent(student)" class="btn btn-warning"><i class="fa fa-edit"></i></button>
+                                    <button type="button" ng-click="vm.removeStudent(student)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                     <!-- /.box-body -->
                 </div>

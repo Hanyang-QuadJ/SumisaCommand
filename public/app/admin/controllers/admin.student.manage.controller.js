@@ -14,6 +14,7 @@
 
         function adminStudentManageController(adminStudentManageService){
             var vm = this;
+
             adminStudentManageService.getStudentArray().then(
                 function(s) {
                     vm.students = s;
@@ -22,33 +23,31 @@
                     // handle error
                 }
             )
-            vm.name = "";
-            vm.grade = "";
-            vm.school = "";
-            vm.parent_phone = "";
-            vm.student_phone = "";
-            vm.addStudents = addStudents;
+            //이 컨트롤러에서 사용할 메소드들 정의
 
-            ///////////
+            vm.addStudent = addStudent;
+            vm.modifyStudent = modifyStudent;
+            vm.removeStudent = removeStudent;
 
-            function addStudents(){
-                vm.students.$add({
-                    s_name : vm.name,
-                    s_grade : vm.grade,
-                    s_school : vm.school,
-                    s_parent_id : vm.parent_phone,
-                    s_id : vm.student_phone,
-                    s_phone : vm.student_phone
-                });
-                vm.name = "";
-                vm.grade = "";
-                vm.school = "";
-                vm.parent_phone = "";
-                vm.student_phone = "";
-                alert("등록완료");
-
-
+            //데이터 테이블에 들어갈 데이터 형태를 정의
+            vm.studentToAdd = {
+                id: '',
+                name: '',
+                school: '',
+                year: '',
             }
 
+            //데이터 추가(firebaseArray를 이용해 firebase와 웹화면에 동시에 추가됨
+            function addStudent() {
+                vm.students.$add(angular.copy(vm.studentToAdd));
+            }
+            //데이터 수정 (미완성)
+            function modifyStudent(index) {
+                vm.students.splice(index, 1, angular.copy(vm.studentToAdd));
+            }
+            //데이터 삭제(firebaseArray를 이용해 firebase와 웹화면에 동시에 추가됨
+            function removeStudent(student) {
+                vm.students.$remove(student);
+            }
         }
 })();

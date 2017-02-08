@@ -14,10 +14,10 @@
 
         studentService.studentInfo().then(
             function(s) {
-                vm.name = s.s_name;
-                vm.id = s.s_id;
-                vm.phone = s.s_phone;
-                vm.school = s.s_school;
+                vm.name = s.name;
+                vm.id = s.id;
+                vm.year = s.year;
+                vm.school = s.school;
             },
             function(err) {
                 // handle error

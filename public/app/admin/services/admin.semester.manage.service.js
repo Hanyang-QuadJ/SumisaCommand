@@ -5,9 +5,9 @@
         .module('app.admin')
         .factory('adminSemesterManageService', adminSemesterManageService);
 
-    adminSemesterManageService.$inject = ['$q','$firebaseArray','$firebaseObject'];
+    adminSemesterManageService.$inject = ['$q','$firebaseArray'];
 
-    function adminSemesterManageService($q,$firebaseArray,$firebaseObject) {
+    function adminSemesterManageService($q,$firebaseArray) {
 
         var deferred = $q.defer();
         var service = {
