@@ -4,6 +4,9 @@
 
 <!-- Bootstrap 3.3.6 -->
 <script src="/bootstrap/js/bootstrap.min.js"></script>
+<!--<script>-->
+    <!--$.fn.modal.Constructor.prototype.enforceFocus = function () {};-->
+<!--</script>-->
 
 <!-- Select2 -->
 <script src="/plugins/select2/select2.full.min.js"></script>
@@ -29,10 +32,11 @@
 <script src="/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="/dist/js/app.min.js"></script>
-<script src="/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<!--<script src="/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>-->
 
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+
 
 
 
@@ -50,8 +54,6 @@
     $(function () {
         //Initialize Select2 Elements
         $(".select2").select2();
-
-        $('#moneymask').mask('000,000,000,000,000,000', {reverse: true});
 
         //Datemask dd/mm/yyyy
         $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
@@ -88,10 +90,6 @@
             autoclose: true
         });
 
-        $('#datepicker2').datepicker({
-            autoclose: true
-        });
-
         //iCheck for checkbox and radio inputs
         $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
             checkboxClass: 'icheckbox_minimal-blue',
@@ -119,28 +117,6 @@
         });
     });
 </script>
-
-
-
-
-
-
-<!--<script>-->
-    <!--$(function () {-->
-        <!--$("#example1").DataTable();-->
-        <!--$('#example2').DataTable({-->
-            <!--"paging": true,-->
-            <!--"lengthChange": false,-->
-            <!--"searching": false,-->
-            <!--"ordering": true,-->
-            <!--"info": true,-->
-            <!--"autoWidth": false-->
-        <!--});-->
-    <!--});-->
-
-
-
-<!--</script>-->
 
 
 
