@@ -23,6 +23,7 @@
                             </div>
                         </div>
                         <div class="box-body">
+
                             <form ng-submit="vm.addSemester()">
                                 <label>등록 번호:</label>
                                 <div class="input-group">
@@ -43,7 +44,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" class="form-control" name="lastName" ng-model="vm.semesterToAdd.date" placeholder="예) 08/12/2016" data-inputmask='"mask": "99/99/9999"' data-mask>
+                                    <input type="text" class="form-control" name="lastName" ng-model="vm.semesterToAdd.date" placeholder="예) 08/12/2016" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
                                 </div>
                                 <br>
                                 <div class="text-center add">
@@ -95,7 +96,7 @@
                                 </tfoot>
                             </table>
                             <div ng-repeat="semester in vm.semesters">
-                                <div ng-attr-id="{{ 'modal-' + $index }}" class="modal fade" role="dialog">
+                                <div ng-attr-id="{{ 'modal-' + $index }}" class="modal fade" role="dialog" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <!-- Modal content (강좌 관리 모달)-->
                                         <div class="modal-content">
@@ -145,6 +146,18 @@
                                                                                 <input type="text" class="form-control" name="lastName" ng-model="vm2.lectureToAdd.maximum">
                                                                             </div>
                                                                             <br>
+                                                                            <div class="form-group">
+                                                                                <label>강사</label>
+                                                                                <select class="form-control select2" style="width: 100%;">
+                                                                                    <option selected="selected">이정규</option>
+                                                                                    <option>도경구</option>
+                                                                                    <option>김광</option>
+                                                                                    <option>이석복</option>
+                                                                                    <option>신정규</option>
+                                                                                    <option>조성현</option>
+                                                                                    <option>김미애</option>
+                                                                                </select>
+                                                                            </div>
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <label>수강료:</label>
@@ -152,7 +165,7 @@
                                                                                 <div class="input-group-addon">
                                                                                     <i class="fa fa-calendar"></i>
                                                                                 </div>
-                                                                                <input type="text" class="form-control" name="lastName" ng-model="vm2.lectureToAdd.fee">
+                                                                                <input type="text" class="form-control" name="lastName" ng-model="vm2.lectureToAdd.fee" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
                                                                             </div>
                                                                             <br>
                                                                             <label>학기ID:</label>
@@ -163,20 +176,26 @@
                                                                                 <input type="text" class="form-control" name="lastName" ng-model="vm2.lectureToAdd.semester">
                                                                             </div>
                                                                             <br>
-                                                                            <label>강좌요일:</label>
-                                                                            <div class="input-group">
-                                                                                <div class="input-group-addon">
-                                                                                    <i class="fa fa-calendar"></i>
-                                                                                </div>
-                                                                                <input type="text" class="form-control" name="lastName">
+                                                                            <div class="form-group">
+                                                                                <label>강좌요일</label>
+                                                                                <select class="form-control select2" multiple="multiple" data-placeholder="요일을 선택하세요" style="width: 100%;">
+                                                                                    <option>월</option>
+                                                                                    <option>화</option>
+                                                                                    <option>수</option>
+                                                                                    <option>목</option>
+                                                                                    <option>금</option>
+                                                                                    <option>토</option>
+                                                                                    <option>일</option>
+                                                                                </select>
                                                                             </div>
+
                                                                             <br>
                                                                             <label>강좌시간:</label>
                                                                             <div class="input-group">
                                                                                 <div class="input-group-addon">
                                                                                     <i class="fa fa-calendar"></i>
                                                                                 </div>
-                                                                                <input type="text" class="form-control" name="lastName"">
+                                                                                <input type="text" class="form-control" name="lastName">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -232,11 +251,33 @@
                                                                         </tr>
                                                                         </tbody>
                                                                     </table>
+                                                                    <script>
+                                                                        $(":input").inputmask();
+                                                                        $(document).on("ajaxComplete", function(e){
+                                                                            $(":input").inputmask();
+                                                                        });
+                                                                    </script>
+                                                                    <script>
+                                                                        $(".select2").select2();
+                                                                        $(document).on("ajaxComplete", function(e){
+                                                                            $(".select2").select2();
+                                                                        });
+                                                                    </script>
                                                                 </div>
                                                                 <!-- /.box-body -->
                                                             </div>
                                                             <!-- /.box -->
                                                         </div>
+
+                                                        <div class="col-md-12">
+                                                            <div class="box box">
+
+
+                                                        </div>
+
+
+
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -253,6 +294,7 @@
                 </div>
                 <!-- /.box -->
             </div>
+        </div>
         </div>
         <!-- /.box -->
     </section>
