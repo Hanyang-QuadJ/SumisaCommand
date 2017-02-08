@@ -22,8 +22,20 @@
             <li class="header"><i class="fa fa-list"></i><span> 메뉴</span></li>
             <!-- Optionally, you can add icons to the links -->
             <li><a href="mg_notice"><i class="fa fa-link"></i> <span>공지사항</span></a></li>
-            <li><a href="teacher"><i class="fa fa-link"></i> <span>강사관리</span></a></li>
-            <li class="treeview">
+            <li class="treeview" ng-class="leftbar.getClassTree('teacher')">
+                <a href="#">
+                    <i class="fa fa-link"></i>
+                    <span>강사</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li ng-class="leftbar.getClassLi('http://localhost:3000/admin/teacher_status')"><a href="teacher_status"><i class="fa fa-circle-o"></i> 강사현황</a></li>
+                    <li ng-class="leftbar.getClassLi('http://localhost:3000/admin/mg_teacher')"><a href="mg_teacher"><i class="fa fa-circle-o"></i> 강사관리</a></li>
+                </ul>
+            </li>
+            <li class="treeview" ng-class="leftbar.getClassTree('student')">
                 <a href="#">
                     <i class="fa fa-link"></i>
                     <span>학생</span>
@@ -32,13 +44,12 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li ng-class="leftbar.getClass('/tasks')" ng-click="leftbar.liActive()"><a href="student_status"><i class="fa fa-circle-o"></i> 학생현황</a></li>
-                    <li ng-class="leftbar.getClass('/tasks')"><a href="student_info"><i class="fa fa-circle-o"></i> 학생정보</a></li>
-                    <li ng-class="leftbar.getClass('/tasks')"><a href="mg_student"><i class="fa fa-circle-o"></i> 학생관리</a></li>
+                    <li ng-class="leftbar.getClassLi('http://localhost:3000/admin/student_status')"><a href="student_status"><i class="fa fa-circle-o"></i> 학생현황</a></li>
+                    <li ng-class="leftbar.getClassLi('http://localhost:3000/admin/mg_student')"><a href="mg_student"><i class="fa fa-circle-o"></i> 학생관리</a></li>
                 </ul>
             </li>
 
-            <li class="treeview active">
+            <li class="treeview" ng-class="leftbar.getClassTree('lecture')">
                 <a href="#">
                     <i class="fa fa-link"></i>
                     <span>강좌</span>
@@ -47,9 +58,8 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li ng-class="leftbar.getClass('/tasks')"><a href="lecture_status"><i class="fa fa-circle-o"></i> 강좌현황</a></li>
-                    <li ng-class="leftbar.getClass('/tasks')"><a href="lecture_info"><i class="fa fa-circle-o"></i> 강좌정보</a></li>
-                    <li ng-class="leftbar.getClass('/tasks')"><a href="mg_lecture"><i class="fa fa-circle-o"></i> 강좌관리</a></li>
+                    <li ng-class="leftbar.getClassLi('http://localhost:3000/admin/lecture_status')"><a href="lecture_status"><i class="fa fa-circle-o"></i> 강좌현황</a></li>
+                    <li ng-class="leftbar.getClassLi('http://localhost:3000/admin/mg_lecture')" ><a href="mg_lecture"><i class="fa fa-circle-o"></i> 강좌관리</a></li>
                 </ul>
             </li>
 
