@@ -5,7 +5,7 @@
         .controller('adminLeftBarController', adminLeftBarController);
     function adminLeftBarController(){
         var vm = this;
-
+        alert("!!");
         vm.liActive = liActive;
 
         function liActive() {
