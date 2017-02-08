@@ -9,90 +9,89 @@
 
     <!-- Main content -->
     <section class="content">
-        <!-- Large modal -->
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-xs-6">
-                    <!-- small box -->
-                    <div class="small-box bg-aqua">
-                        <div class="inner">
-                            <h3>미적분1 심화과정</h3>
-                            <p>이정현</p>
+
+        <div class="row">
+            <div class="col-md-2 connectedSortable">
+                <!-- /. box -->
+                <div class="box box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">이벤트 추가</h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
+                            <!--<button type="button" id="color-chooser-btn" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown">Color <span class="caret"></span></button>-->
+                            <ul class="fc-color-picker" id="color-chooser">
+                                <li><a class="text-aqua" href="#"><i class="fa fa-square"></i></a></li>
+                                <li><a class="text-blue" href="#"><i class="fa fa-square"></i></a></li>
+                                <li><a class="text-light-blue" href="#"><i class="fa fa-square"></i></a></li>
+                                <li><a class="text-teal" href="#"><i class="fa fa-square"></i></a></li>
+                                <li><a class="text-yellow" href="#"><i class="fa fa-square"></i></a></li>
+                                <li><a class="text-orange" href="#"><i class="fa fa-square"></i></a></li>
+                                <li><a class="text-green" href="#"><i class="fa fa-square"></i></a></li>
+                                <li><a class="text-lime" href="#"><i class="fa fa-square"></i></a></li>
+                                <li><a class="text-red" href="#"><i class="fa fa-square"></i></a></li>
+                                <li><a class="text-purple" href="#"><i class="fa fa-square"></i></a></li>
+                                <li><a class="text-fuchsia" href="#"><i class="fa fa-square"></i></a></li>
+                                <li><a class="text-muted" href="#"><i class="fa fa-square"></i></a></li>
+                                <li><a class="text-navy" href="#"><i class="fa fa-square"></i></a></li>
+                            </ul>
                         </div>
-                        <div class="icon">
-                            <a href="#" class="small-box-footer" data-toggle="modal" data-target=".lecture2"><i class="fa fa-pencil-square-o"></i></a>
+                        <!-- /btn-group -->
+                        <div class="input-group">
+                            <input id="new-event" type="text" class="form-control" placeholder="이벤트">
+
+                            <div class="input-group-btn">
+                                <button id="add-new-event" type="button" class="btn btn-primary btn-flat">추가</button>
+                            </div>
+                            <!-- /btn-group -->
                         </div>
-                        <a href="#" class="small-box-footer" data-toggle="modal" data-target=".lecture1">
-                            자세히보기 <i class="fa fa-arrow-circle-right"></i>
-                        </a>
+                        <!-- /input-group -->
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-xs-6">
-                    <!-- small box -->
-                    <div class="small-box bg-red">
-                        <div class="inner">
-                            <h3>수1 기본과정</h3>
-                            <p>권준형</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fa fa-pencil-square-o"></i>
-                        </div>
-                        <a href="#" class="small-box-footer" data-toggle="modal" data-target=".bs-example-modal-lg">
-                            자세히보기 <i class="fa fa-arrow-circle-right"></i>
-                        </a>
+                <div class="box box-solid">
+                    <div class="box-header with-border">
+                        <h4 class="box-title">이벤트 드래그 목록</h4>
                     </div>
+                    <div class="box-body">
+                        <!-- the events -->
+                        <div id="external-events">
+                            <div class="external-event bg-green">상담전화하기</div>
+                            <div class="external-event bg-yellow">잠실중 중간고사</div>
+                            <div class="external-event bg-aqua">잠일중 기말고사</div>
+                            <div class="external-event bg-light-blue">봄방학 특강</div>
+                            <div class="external-event bg-red">쿼드제이 미팅</div>
+                            <div class="checkbox">
+                                <label for="drop-remove">
+                                    <input type="checkbox" id="drop-remove">
+                                    드래그 후 삭제
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
                 </div>
             </div>
-
-            <div class="timetable"></div>
-
-            <script src="../javascripts/timetable1.js"></script>
-
-            <script>
-                var timetable = new Timetable();
-
-                timetable.setScope(9,23)
-
-                timetable.addLocations(['월', '화', '수', '목', '금', '토', '일']);
-
-                var class1_tag ={
-                    url: '#',
-                    class: "class1",
-                    data: {
-                        toggle: "modal",
-                        target: ".lecture1",
-                    }
-                }
-
-                var class2_tag ={
-                    url: '#',
-                    class: "class1",
-                    data: {
-                        toggle: "modal",
-                        target: ".lecture1",
-                    }
-                }
-
-                timetable.addEvent('미적분', '월', new Date(2015,7,17,9,00), new Date(2015,7,17,11,30), class1_tag);
-                timetable.addEvent('미적분', '수', new Date(2015,7,17,12,30), new Date(2015,7,17,16,15), class1_tag); // options attribute is not used for this event
-                timetable.addEvent('수1심화', '월', new Date(2015,7,17,19,00), new Date(2015,7,17,22,00), { class: 'vip-only' });
-                timetable.addEvent('수1심화', '목', new Date(2015,7,17,17,45), new Date(2015,7,17,19,30), { class: 'vip-only',});
-                timetable.addEvent('기하와벡터', '화', new Date(2015,7,17,12), new Date(2015,7,17,13), { url: '#' });
-                timetable.addEvent('기하와벡터', '화', new Date(2015,7,17,13,30), new Date(2015,7,17,15), { url: '#' });
-                timetable.addEvent('수2기본', '금', new Date(2015,7,17,17), new Date(2015,7,17,21,30), {class: 'class2'}, { url: '#' });
-                timetable.addEvent('수2기본', '토', new Date(2015,7,17,9,30), new Date(2015,7,17,11,45), {class: 'class2'} , { url: '#' });
-                timetable.addEvent('성교육특강', '일', new Date(2015,7,17,11,30), new Date(2015,7,17,20), {class: 'class3'}); // options attribute is not used for this event
-
-
-                var renderer = new Timetable.Renderer(timetable);
-                renderer.draw('.timetable');
-            </script>
-
-
-
-
+            <!-- /.col -->
+            <div class="col-md-10 connectedSortable">
+                <div class="box box-primary">
+                    <div class="box-header with-border text-center">
+                        <h3>종합일정</h3>
+                    </div>
+                    <div class="box-body">
+                        <!-- THE CALENDAR -->
+                        <div id="calendar"></div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /. box -->
+            </div>
+            <!-- /.col -->
         </div>
+
+
+
+
     </section>
 
 
