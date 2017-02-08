@@ -6,21 +6,19 @@
         .factory('studentService', studentService);
 
 
-    studentService.$inject = ['$cookies','$q'];
+    studentService.$inject = ['$q'];
 
 
 
 
-    function studentService($cookies,$q) {
+    function studentService($q) {
 
-        var student = function (s_id, s_name, s_school, s_phone, s_state) {
-            this.s_id = s_id;
-            this.s_name = s_name;
-            this.s_school = s_school;
-            this.s_phone = s_phone;
+        var student = {
+            id: '',
+            name: '',
+            year: '',
+            school: '',
         };
-
-        var s = new student();
 
         var deferred = $q.defer();
 
@@ -35,12 +33,12 @@
 
         function studentInfo() {
             const studentRefObject = firebase.database().ref().child('student');
-            studentRefObject.orderByChild("s_id").equalTo('2014038122').once("child_added", function(snapshot) {
-                s.s_name = snapshot.child('s_name').val();
-                s.s_id = snapshot.child('s_id').val();
-                s.s_phone = snapshot.child('s_phone').val();
-                s.s_school = snapshot.child('s_school').val();
-                deferred.resolve(s);
+            studentRefObject.orderByChild("id").equalTo('2014038122').once("child_added", function(snapshot) {
+                student.name = snapshot.child('name').val();
+                student.id = snapshot.child('id').val();
+                student.year = snapshot.child('year').val();
+                student.school = snapshot.child('school').val();
+                deferred.resolve(student);
             });
             return deferred.promise;
         };
