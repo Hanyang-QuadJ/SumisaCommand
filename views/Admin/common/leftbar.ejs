@@ -1,4 +1,4 @@
-<aside class="main-sidebar">
+<aside class="main-sidebar" ng-controller="adminLeftBarController as leftbar">
 
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
@@ -32,9 +32,9 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href="student_status"><i class="fa fa-circle-o"></i> 학생현황</a></li>
-                    <li><a href="student_info"><i class="fa fa-circle-o"></i> 학생정보</a></li>
-                    <li><a href="mg_student"><i class="fa fa-circle-o"></i> 학생관리</a></li>
+                    <li ng-class="leftbar.getClass('/tasks')" ng-click="leftbar.liActive()"><a href="student_status"><i class="fa fa-circle-o"></i> 학생현황</a></li>
+                    <li ng-class="leftbar.getClass('/tasks')"><a href="student_info"><i class="fa fa-circle-o"></i> 학생정보</a></li>
+                    <li ng-class="leftbar.getClass('/tasks')"><a href="mg_student"><i class="fa fa-circle-o"></i> 학생관리</a></li>
                 </ul>
             </li>
 
@@ -47,9 +47,9 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href="lecture_status"><i class="fa fa-circle-o"></i> 강좌현황</a></li>
-                    <li><a href="lecture_info"><i class="fa fa-circle-o"></i> 강좌정보</a></li>
-                    <li><a href="mg_lecture"><i class="fa fa-circle-o"></i> 강좌관리</a></li>
+                    <li ng-class="leftbar.getClass('/tasks')"><a href="lecture_status"><i class="fa fa-circle-o"></i> 강좌현황</a></li>
+                    <li ng-class="leftbar.getClass('/tasks')"><a href="lecture_info"><i class="fa fa-circle-o"></i> 강좌정보</a></li>
+                    <li ng-class="leftbar.getClass('/tasks')"><a href="mg_lecture"><i class="fa fa-circle-o"></i> 강좌관리</a></li>
                 </ul>
             </li>
 
