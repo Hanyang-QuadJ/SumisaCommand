@@ -112,8 +112,13 @@ router.get('/admin/mg_lecture', function(req, res, next) {
 });
 
 /*Admin-Lecturer page rendering*/
-router.get('/admin/teacher', function(req, res, next) {
-    res.render('Admin/teacher/teacher');
+
+router.get('/admin/teacher_status', function(req, res, next) {
+    res.render('Admin/teacher/teacher_status/teacher_status');
+});
+
+router.get('/admin/mg_teacher', function(req, res, next) {
+    res.render('Admin/teacher/mg_teacher/mg_teacher');
 });
 
 /*Admin-Notice page rendering*/
