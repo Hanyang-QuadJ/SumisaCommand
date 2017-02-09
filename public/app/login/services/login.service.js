@@ -5,9 +5,7 @@
         .module('app.login')
         .factory('loginService', loginService);
 
-
     loginService.$inject = ['$window','$firebaseArray'];
-
 
     function loginService($window,$firebaseArray) {
 
@@ -30,8 +28,7 @@
                 if (userData===null){
                     $window.location.href= "index";
                 }else {
-                    console.log(root.child('login'));
-
+                    $window.location.href= "student?uid=~~~";
                 }
             });
         };

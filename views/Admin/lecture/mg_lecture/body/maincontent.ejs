@@ -145,14 +145,8 @@
                                                                             <br>
                                                                             <div class="form-group">
                                                                                 <label>강사</label>
-                                                                                <select class="form-control select2" style="width: 100%;">
-                                                                                    <option selected="selected">이정규</option>
-                                                                                    <option>도경구</option>
-                                                                                    <option>김광</option>
-                                                                                    <option>이석복</option>
-                                                                                    <option>신정규</option>
-                                                                                    <option>조성현</option>
-                                                                                    <option>김미애</option>
+                                                                                <select class="form-control select2" ng-model="vm2.lectureToAdd.teacher"  style="width: 100%;">
+                                                                                    <option ng-repeat="teacher in vm2.teachers">{{teacher.id}}/{{teacher.name}}</option>
                                                                                 </select>
                                                                             </div>
                                                                         </div>
@@ -165,12 +159,12 @@
                                                                                 <input type="text" class="form-control" name="lastName" ng-model="vm2.lectureToAdd.fee" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask>
                                                                             </div>
                                                                             <br>
-                                                                            <label>학기ID:</label>
+                                                                            <label>학기:</label>
                                                                             <div class="input-group">
                                                                                 <div class="input-group-addon">
                                                                                     <i class="fa fa-calendar"></i>
                                                                                 </div>
-                                                                                <input type="text" class="form-control" name="lastName" ng-model="vm2.lectureToAdd.semester">
+                                                                                <input type="text" class="form-control" name="lastName" ng-value="semester.name" ng-init="vm2.lectureToAdd.semester = semester.id" readonly>
                                                                             </div>
                                                                             <br>
                                                                             <div class="form-group">
@@ -178,7 +172,7 @@
                                                                                     <i class="fa fa-calendar"></i>
                                                                                 </div>
                                                                                 <label>강좌요일</label>
-                                                                                <select class="form-control select2" multiple="multiple" data-placeholder="요일을 선택하세요" style="width: 100%;">
+                                                                                <select class="form-control select2" ng-model = "vm2.lectureToAdd.week" multiple="multiple" data-placeholder="요일을 선택하세요" style="width: 100%;">
                                                                                     <option>월</option>
                                                                                     <option>화</option>
                                                                                     <option>수</option>
