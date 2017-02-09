@@ -65,7 +65,7 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <table id = "semester" datatable="ng" class="row-border hover">
+                            <table id = "semester" datatable="ng" class="table-striped row-border hover">
                                 <thead>
                                 <tr>
                                     <th class="text-center" style="width:8%">번호</th>
@@ -171,9 +171,6 @@
                                                                             </div>
                                                                             <br>
                                                                             <div class="form-group">
-                                                                                <div class="form-group-addon">
-                                                                                    <i class="fa fa-calendar"></i>
-                                                                                </div>
                                                                                 <label>강좌요일</label>
                                                                                 <select class="form-control select2" ng-model = "vm2.lectureToAdd.week" multiple="multiple" data-placeholder="요일을 선택하세요" style="width: 100%;">
                                                                                     <option>월</option>
@@ -248,18 +245,6 @@
                                                                         </tr>
                                                                         </tbody>
                                                                     </table>
-                                                                    <script>
-                                                                        $(":input").inputmask();
-                                                                        $(document).on("ajaxComplete", function(e){
-                                                                            $(":input").inputmask();
-                                                                        });
-                                                                    </script>
-                                                                    <script>
-                                                                        $(".select2").select2();
-                                                                        $(document).on("ajaxComplete", function(e){
-                                                                            $(".select2").select2();
-                                                                        });
-                                                                    </script>
                                                                 </div>
                                                                 <!-- /.box-body -->
                                                             </div>
@@ -271,6 +256,20 @@
 
 
                                                         </div>
+
+                                                            <script>
+                                                                $(":input").inputmask();
+                                                                $(document).on("ajaxComplete", function(e){
+                                                                    $(":input").inputmask();
+                                                                });
+                                                            </script>
+
+                                                            <script>
+                                                                $(".select2").select2();
+                                                                $(document).on("ajaxComplete", function(e){
+                                                                    $(".select2").select2();
+                                                                });
+                                                            </script>
 
 
 
