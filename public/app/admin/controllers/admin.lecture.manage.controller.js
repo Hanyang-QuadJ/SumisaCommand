@@ -9,11 +9,13 @@
         .controller('adminLectureManageController', adminLectureManageController);
     //'adminLectureManageService' : 파이어 베이스와 연동을 위한 서비스
     adminLectureManageController.$inject = [
-        'adminLectureManageService'
+        'adminLectureManageService',
+        'adminTeacherManageService'
     ];
 
     function adminLectureManageController(
-        adminLectureManageService
+        adminLectureManageService,
+        adminTeacherManageService
     )
     {
         var vm = this;
@@ -25,7 +27,15 @@
             function(err) {
                 // handle error
             }
-        )
+        );
+        adminTeacherManageService.getTeacherArray().then(
+            function(s) {
+                vm.teachers = s;
+            },
+            function(err) {
+                // handle error
+            }
+        );
         //이 컨트롤러에서 사용할 메소드들 정의
 
         vm.addLecture = addLecture;
@@ -39,6 +49,8 @@
             maximum: '',
             fee: '',
             semester: '',
+            teacher: '',
+            week: [],
         };
 
         //데이터 추가(firebaseArray를 이용해 firebase와 웹화면에 동시에 추가됨
