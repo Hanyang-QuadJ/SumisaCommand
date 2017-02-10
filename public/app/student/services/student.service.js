@@ -5,7 +5,6 @@
         .module('app.student')
         .factory('studentService', studentService);
 
-
     studentService.$inject = ['$q'];
 
 
@@ -31,15 +30,15 @@
 
         ////////////
 
+
         function studentInfo() {
-            const studentRefObject = firebase.database().ref().child('student');
-            studentRefObject.orderByChild("id").equalTo('2014038122').once("child_added", function(snapshot) {
-                student.name = snapshot.child('name').val();
-                student.id = snapshot.child('id').val();
-                student.year = snapshot.child('year').val();
-                student.school = snapshot.child('school').val();
-                deferred.resolve(student);
-            });
+
+            const studentDatabase = database.ref("student/" );
+            studentDatabase
+                .once('value')
+                .then(function (snapshot) {
+                    console.log(snapshot.val().name);
+                });
             return deferred.promise;
         };
 

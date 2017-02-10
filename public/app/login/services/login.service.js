@@ -1,38 +1,42 @@
-(function() {
+(function () {
     "use strict";
 
     angular
         .module('app.login')
         .factory('loginService', loginService);
 
-    loginService.$inject = ['$window','$firebaseArray'];
+    loginService.$inject = ['$window'];
 
-    function loginService($window,$firebaseArray) {
-
+    function loginService($window) {
         var service = {
 
-            authenticate : authenticate
+            authenticate: authenticate
 
         };
         return service;
 
         ////////////
 
-        function authenticate(ID) {
-            const studentRefObject = firebase.database().ref().child('student');
-            const root = firebase.database().ref();
-            studentRefObject.orderByChild("s_id").equalTo(ID).once("value", function(snapshot) {
+        function authenticate(ID, PW) {
+            var auth, userInfo;
 
-                var userData = snapshot.val();
+            auth = firebase.auth();
 
-                if (userData===null){
-                    $window.location.href= "index";
-                }else {
-                    $window.location.href= "student?uid=~~~";
+            auth.signInWithEmailAndPassword(ID, PW).catch(function (error) {
+                console.log(error.code);
+                console.log(error.message);
+            });
+
+            auth.onAuthStateChanged(function (user) {
+                if (user) {
+                    userInfo = user;
+                    $window.location.href = "submit/" + userInfo.uid;
+                } else {
+                    $window.location.href = "index";
+
                 }
             });
-        };
 
-
+        }
     }
 })();

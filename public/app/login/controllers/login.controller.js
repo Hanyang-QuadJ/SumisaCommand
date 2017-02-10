@@ -15,7 +15,7 @@
         vm.ID = "";
 
         function submit(){
-            loginService.authenticate(vm.ID);
+            loginService.authenticate(vm.ID,vm.PW);
         };
 
     }

@@ -26,7 +26,12 @@ router.get(['/','/indexError'], function(req, res, next) {
 });
 
 /*Page redirecting based on ID*/
-router.post('/submit', function(req, res, next) {
+
+router.get('/submit/:uid', function(req, res, next) {
+    console.log(req.params.uid);
+    var uid = req.params.uid;
+    res.redirect('/student/' + uid);
+
     // res.render('Student/student');
     // ID = req.body.ID;
     // userType = req.body.userType;
@@ -76,9 +81,14 @@ router.post('/submit', function(req, res, next) {
 });
 
 /*page rendering*/
-router.get('/student', function(req, res, next) {
-    res.render('Student/student');
+router.get('/student/:uid', function(req, res, next) {
+    res.render('Student/student',{UID : req.params.uid});
+
 });
+// router.get('/student/:uid', function(req, res, next) {
+//     var uid = req.params.uid;
+//     res.render('Student/student',{UID : uid});
+// });
 router.get('/parent', function(req, res, next) {
     res.render('Parent/parent');
 });
