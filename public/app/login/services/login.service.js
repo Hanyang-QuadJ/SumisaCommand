@@ -30,7 +30,7 @@
             auth.onAuthStateChanged(function (user) {
                 if (user) {
                     userInfo = user;
-                    $window.location.href = "submit/" + userInfo.uid;
+                    $window.location.href = "submit?uid=" + userInfo.uid;
                 } else {
                     $window.location.href = "index";
 
