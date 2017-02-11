@@ -30,7 +30,19 @@
             auth.onAuthStateChanged(function (user) {
                 if (user) {
                     userInfo = user;
-                    $window.location.href = "submit?uid=" + userInfo.uid;
+                    $.ajax({
+                        url : "/submit",
+                        type : 'POST',
+                        data : {uid : userInfo.uid},
+                        success: function (data) {
+                            $window.location.href = "student";
+                        },
+                        error : function (data) {
+                            console.log("fail!");
+
+                        }
+                    });
+
                 } else {
                     $window.location.href = "index";
 
