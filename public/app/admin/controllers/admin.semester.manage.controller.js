@@ -36,6 +36,8 @@
         );
 
         //이 컨트롤러에서 사용할 메소드들 정의
+        vm.clicked = "";
+        vm.click = click;
         vm.addSemester = addSemester;
         vm.modifySemester = modifySemester;
         vm.removeSemester = removeSemester;
@@ -47,6 +49,9 @@
         }
 
         //데이터 추가(firebaseArray를 이용해 firebase와 웹화면에 동시에 추가됨
+        function click(clickedSemester){
+            vm.clicked = clickedSemester;
+        }
         function addSemester() {
             vm.semesters.$add(angular.copy(vm.semesterToAdd));
         }
