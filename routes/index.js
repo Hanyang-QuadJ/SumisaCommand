@@ -42,7 +42,6 @@ router.post('/submit', function(req, res, next) {
 // });
 
 router.get('/student', function(req, res, next) {
-    console.log("uid=" + uid );
     res.render('Student/student',{UID: uid});
 });
 

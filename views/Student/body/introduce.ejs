@@ -2,9 +2,10 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h1><%= UID %></h1>
                 <img class="img-responsive" src="img/profile.png" width="180px" height="180px" alt="">
                 <div class="intro-text" ng-controller="introduceController as introduce">
+                    <div id="uid" style="visibility: hidden"><%= UID %></div>
+
                     <span class="name">{{ introduce.name }}</span><br>
                     <span class="skills"><i class="xi-cake">{{introduce.id}}</i></span><br>
                     <span class="skills"><i class="xi-school"> {{introduce.school}}</i></span><br>

@@ -12,8 +12,10 @@
 
         var vm = this;
 
+
         studentService.studentInfo().then(
             function(s) {
+
                 vm.name = s.name;
                 vm.id = s.id;
                 vm.year = s.year;
