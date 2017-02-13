@@ -35,6 +35,7 @@
 
             var uid = document.querySelector('#uid').innerHTML;
             const studentDatabase = database.ref("student/" + uid);
+
             studentDatabase
                 .once('value')
                 .then(function (snapshot) {
